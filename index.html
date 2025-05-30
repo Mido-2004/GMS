@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="pageTitle">GMS - Glove Motion System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* تعريف الألوان كمتغيرات CSS للوضع الفاتح (الافتراضي) */
+        :root {
+            --bg-body: #f3f4f6; /* gray-100 */
+            --text-body: #1f2937; /* gray-900 */
+            --bg-card: #ffffff;
+            --text-card-primary: #374151; /* gray-700 */
+            --text-card-secondary: #4b5563; /* gray-600 */
+            --bg-section-about: #e0f2fe; /* light blue */
+            --bg-section-features: #e6ffe6; /* light green */
+            --bg-section-components: #f0f0f0; /* light gray */
+            --bg-section-how-it-works: #f0f9ff; /* even lighter blue */
+            --bg-section-challenges: #fee2e2; /* light red */
+            --bg-section-team: #f3e8ff; /* light purple */
+            --bg-section-contact: #fffacd; /* light yellow */
+            --text-heading: #1d4ed8; /* blue-700 */
+            --text-link: #2563eb; /* blue-600 */
+            --border-card: #e5e7eb; /* gray-200 */
+            --border-leader: #3b82f6; /* blue-500 */
+            --bg-button-light: #60a5fa; /* blue-400 */
+            --bg-button-dark: #2563eb; /* blue-600 */
+        }
+
+        /* تعريف الألوان كمتغيرات CSS للوضع الداكن */
+        html.dark-mode {
+            --bg-body: #1a202c; /* dark gray */
+            --text-body: #e2e8f0; /* light gray */
+            --bg-card: #2d3748; /* darker gray */
+            --text-card-primary: #cbd5e0; /* lighter gray */
+            --text-card-secondary: #a0aec0; /* even lighter gray */
+            --bg-section-about: #2c3e50; /* darker blue */
+            --bg-section-features: #34495e; /* darker green */
+            --bg-section-components: #212b36; /* even darker gray */
+            --bg-section-how-it-works: #1c2a39; /* darker light blue */
+            --bg-section-challenges: #4a2d2d; /* darker red */
+            --bg-section-team: #4a2d5e; /* darker purple */
+            --bg-section-contact: #5e5e4a; /* darker yellow */
+            --text-heading: #90cdf4; /* light blue for headings */
+            --text-link: #63b3ed; /* light blue for links */
+            --border-card: #4a5568; /* darker gray border */
+            --border-leader: #63b3ed; /* light blue border */
+            --bg-button-light: #3b82f6; /* blue-500 */
+            --bg-button-dark: #1d4ed8; /* blue-800 */
+        }
+
+        /* تطبيق المتغيرات على العناصر */
+        body {
+            font-family: 'Cairo', sans-serif;
+            direction: rtl; /* لجعل الاتجاه من اليمين لليسار */
+            text-align: right; /* لمحاذاة النصوص لليمين */
+            background-color: var(--bg-body);
+            color: var(--text-body);
+        }
+
+        /* ألوان الهيدر والفوتر ثابتة لتبقى مميزة */
+        header { background-color: #1e3a8a; /* blue-900 */ }
+        footer { background-color: #1f2937; /* gray-900 */ }
+
+        /* ألوان الـ Hero Section ثابتة */
+        .hero-section {
+            background: linear-gradient(to right, #2563eb, #1e40af); /* تدرج أزرق داكن */
+        }
+
+        /* تطبيق الألوان على البطاقات والمحتوى الداخلي */
+        .bg-white { /* تستخدم للبطاقات */
+            background-color: var(--bg-card) !important;
+            color: var(--text-card-primary);
+        }
+        .text-gray-700 { /* النصوص الأساسية داخل البطاقات */
+            color: var(--text-card-primary) !important;
+        }
+        .text-gray-600 { /* النصوص الثانوية داخل البطاقات */
+            color: var(--text-card-secondary) !important;
+        }
+        .text-blue-700 { /* العناوين الرئيسية للأقسام */
+            color: var(--text-heading) !important;
+        }
+        .text-blue-600 { /* روابط التواصل */
+            color: var(--text-link) !important;
+        }
+        .border { /* حدود البطاقات */
+            border-color: var(--border-card) !important;
+        }
+        .border-blue-500 { /* حدود قائد المجموعة */
+            border-color: var(--border-leader) !important;
+        }
+        .bg-blue-500 { /* زر اكتشف المزيد */
+            background-color: var(--bg-button-light) !important;
+        }
+        .bg-blue-700 { /* نص زر اكتشف المزيد */
+            color: var(--text-link) !important; /* لضمان التناسق مع روابط الأزرار */
+        }
+        .bg-blue-600 { /* زر تبديل اللغة */
+            background-color: var(--bg-button-dark) !important;
+        }
+
+        /* خلفيات الأقسام المحددة */
+        #about { background-color: var(--bg-section-about); }
+        #features { background-color: var(--bg-section-features); }
+        #components { background-color: var(--bg-section-components); }
+        #how-it-works { background-color: var(--bg-section-how-it-works); }
+        #challenges { background-color: var(--bg-section-challenges); }
+        #team { background-color: var(--bg-section-team); }
+        #contact { background-color: var(--bg-section-contact); }
+        .bg-gray-50 { /* خلفية قسم المميزات وفريق العمل */
+            background-color: var(--bg-body) !important; /* لتتبع لون الخلفية الأساسي للجسم */
+        }
+
+
+        /* أنيميشن دخول العناصر في Hero Section */
+        @keyframes fade-in-down {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-down { animation: fade-in-down 0.8s ease-out forwards; }
+        .animate-fade-in-up { animation: fade-in-up 0.8s ease-out forwards; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+
+        /* أنيميشن الانتقال بين الأقسام */
+        .section-transition {
+            transition: opacity 0.7s ease-in-out, max-height 0.7s ease-in-out;
+            overflow: hidden; /* لإخفاء المحتوى الزائد عند تصغير الارتفاع */
+        }
+        .section-hidden {
+            opacity: 0;
+            max-height: 0;
+            pointer-events: none; /* لمنع التفاعل مع العناصر المخفية */
+            padding-top: 0 !important; /* إزالة البادينج عند الإخفاء */
+            padding-bottom: 0 !important; /* إزالة البادينج عند الإخفاء */
+            margin-top: 0 !important; /* إزالة الهوامش عند الإخفاء */
+            margin-bottom: 0 !important; /* إزالة الهوامش عند الإخفاء */
+        }
+        .section-visible {
+            opacity: 1;
+            max-height: 9999px; /* قيمة كبيرة لضمان ظهور المحتوى كاملاً */
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="bg-blue-800 text-white p-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2 space-x-reverse"> <img src="uploaded:WhatsApp Image 2025-05-30 at 14.34.01_9a59257d.jpg-09fcd83f-47d7-43a1-8b0e-98ce6c51da44" alt="شعار جامعة حلوان" class="h-10 w-10 rounded-full border-2 border-white">
+                <h1 class="text-2xl font-bold" data-key="universityName">جامعة حلوان</h1>
+            </div>
+            <nav class="flex items-center space-x-4 space-x-reverse">
+                <ul class="flex space-x-4 space-x-reverse">
+                    <li><a href="#hero" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navHome">الرئيسية</a></li>
+                    <li><a href="#about" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navAbout">عن المشروع</a></li>
+                    <li><a href="#features" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navFeatures">المميزات</a></li>
+                    <li><a href="#components" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navComponents">المكونات</a></li>
+                    <li><a href="#how-it-works" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navHowItWorks">كيف يعمل</a></li>
+                    <li><a href="#challenges" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navChallenges">التحديات والحلول</a></li>
+                    <li><a href="#team" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navTeam">فريق العمل</a></li>
+                    <li><a href="#contact" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navContact">تواصل معنا</a></li>
+                </ul>
+                <button id="language-toggle" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
+                    English
+                </button>
+                <button id="theme-toggle" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
+                    وضع داكن
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="hero" class="hero-section text-white py-20 px-4 text-center shadow-inner relative overflow-hidden section-transition section-visible">
+            <div class="absolute inset-0 bg-opacity-20 bg-black z-0"></div> <div class="container mx-auto relative z-10">
+                <h2 class="text-5xl md:text-6xl font-extrabold mb-4 animate-fade-in-down" data-key="heroTitle">
+                    GMS - Glove Motion System
+                </h2>
+                <p class="text-2xl md:text-3xl font-semibold mb-8 animate-fade-in-up" data-key="heroSlogan">
+                    "Your power is in your hand"
+                </p>
+                <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-10 opacity-90 animate-fade-in-up delay-200" data-key="heroDescription">
+                    كرسي متحرك ذكي يتم التحكم فيه بإيماءات اليد لمساعدة ذوي الاحتياجات الجسدية على تعزيز حركتهم واستقلاليتهم.
+                </p>
+                <a href="#about" class="bg-white text-blue-700 hover:bg-blue-100 font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg animate-fade-in-up delay-400" data-key="heroButton">
+                    اكتشف المزيد عن مشروعنا
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="container mx-auto py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+                <img src="https://placehold.co/1200x400/87CEEB/ffffff?text=About+Project" alt="صورة تعبيرية عن المشروع" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="aboutTitle">عن المشروع</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <p class="text-lg leading-relaxed text-gray-700" data-key="aboutIntro">
+                    في عالمنا الحديث، أصبحت التكنولوجيا عنصرًا حيويًا في تحسين جودة الحياة، خاصة للأفراد ذوي الاحتياجات الخاصة. من هذا المنطلق، تزايدت الحاجة إلى تطوير حلول تنقل أكثر ذكاءً ومرونة تمكن الأشخاص ذوي الإعاقات الجسدية من الاعتماد على أنفسهم بشكل أكبر وتعزيز استقلاليتهم. يهدف هذا المشروع إلى تصميم وتنفيذ كرسي متحرك ذكي يتم التحكم فيه عبر قفاز ذكي مزود بمستشعرات الانثناء (Flex Sensors)، بالإضافة إلى التحكم من خلال تطبيق جوال باستخدام بلوتوث HC-05.
+                </p>
+                <p class="text-lg leading-relaxed text-gray-700 mt-4" data-key="aboutSystemOverview">
+                    يعتمد النظام على الأردوينو نانو (Arduino Nano) كوحدة تحكم رئيسية داخل القفاز، والتي ترسل إشارات لاسلكية إلى الكرسي المتحرك. يشتمل الكرسي نفسه على محركات 24 فولت، ووحدتي PTS للتحكم في الحركة، ووحدة بلوتوث مخصصة، وأردوينو ميجا (Arduino Mega) لاستقبال الإشارات. يتم تضمين بطارية قابلة لإعادة الشحن لتوفير طاقة تشغيل مستقرة.
+                </p>
+            </div>
+            <h3 class="text-3xl font-bold text-blue-700 text-center mb-8" data-key="resultsTitle">النتائج والخاتمة</h3>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <p class="text-lg leading-relaxed text-gray-700" data-key="resultsContent">
+                    أظهرت النتائج استجابة ودقة عالية في ترجمة إيماءات اليد إلى حركة في الوقت الفعلي، مما يؤكد فعالية النظام. في الختام، حقق المشروع هدفه الرئيسي من خلال تقديم حل عملي للتحكم القائم على الإيماءات. يمكن أن تشمل التحسينات المستقبلية اكتشاف العوائق، وتعديل السرعة، أو دمج التحكم الصوتي لتعزيز سهولة الاستخدام والسلامة. يمثل هذا المشروع خطوة عملية نحو دمج الإلكترونيات والبرمجة والميكانيكا في منتج واقعي يخدم المجتمع.
+                </p>
+            </div>
+        </section>
+
+        <section id="features" class="container mx-auto py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+                <img src="https://placehold.co/1200x400/90EE90/ffffff?text=Project+Features" alt="صورة تعبيرية عن المميزات" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="featuresTitle">مميزات المشروع</h2>
+            <p class="text-lg leading-relaxed text-gray-700 text-center mb-8" data-key="featuresIntro">
+                يتميز مشروعنا "GMS - Glove Motion System" بالعديد من الخصائص المبتكرة التي تجعله حلاً فعالاً ومساعداً للأشخاص ذوي الاحتياجات الخاصة.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-blue-500 text-5xl mb-4">🖐️</div>
+                    <h3 class="text-2xl font-bold mb-2" data-key="feature1Title">سهولة التحكم</h3>
+                    <p class="text-gray-600" data-key="feature1Desc">يوفر النظام طريقة تحكم بسيطة وسهلة الاستخدام، تمكن المستخدم من التحكم في حركة الكرسي باستخدام حركة أصابعه فقط.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-green-500 text-5xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-2" data-key="feature2Title">دقة الاستجابة</h3>
+                    <p class="text-gray-600" data-key="feature2Desc">يتميز النظام بقدرته على قراءة حركة كل إصبع بدقة، مما يتيح تحديد الاتجاه المطلوب (يمين، يسار، أمام، خلف) بناءً على انحناء الأصابع.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-purple-500 text-5xl mb-4">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-2" data-key="feature3Title">أمان معزز</h3>
+                    <p class="text-gray-600" data-key="feature3Desc">يشتمل النظام على آلية أمان فعالة، حيث يتوقف الكرسي المتحرك تلقائيًا عن الحركة عندما يتوقف المستخدم عن تحريك أصابعه، لتجنب الحوادث أو الحركات غير المقصودة.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-red-500 text-5xl mb-4">🔋</div>
+                    <h3 class="text-2xl font-bold mb-2" data-key="feature4Title">بطارية قابلة لإعادة الشحن</h3>
+                    <p class="text-gray-600" data-key="feature4Desc">يعمل لساعات طويلة دون الحاجة للشحن المستمر، ويوفر استقلالية أكبر للمستخدم بفضل بطاريته القابلة لإعادة الشحن.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-yellow-500 text-5xl mb-4">📱</div>
+                    <h3 class="text-2xl font-bold mb-2" data-key="feature5Title">تحكم عبر الهاتف الذكي</h3>
+                    <p class="text-gray-600" data-key="feature5Desc">إمكانية التحكم بالكرسي عبر تطبيق الهاتف الذكي كبديل للقفاز في حالات الطوارئ أو الراحة.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-teal-500 text-5xl mb-4">⚙️</div>
+                    <h3 class="text-2xl font-bold mb-2" data-key="feature6Title">مرونة التطوير</h3>
+                    <p class="text-gray-600" data-key="feature6Desc">تصميم المشروع يتمتع بمرونة كبيرة للتحديثات المستقبلية، مما يتيح إضافة العديد من الميزات الجديدة بسهولة.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="components" class="container mx-auto py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+                <img src="https://placehold.co/1200x400/D3D3D3/000000?text=Key+Components" alt="صورة تعبيرية عن المكونات" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="componentsTitle">المكونات الأساسية</h2>
+            <p class="text-lg leading-relaxed text-gray-700 text-center mb-8" data-key="componentsIntro">
+                يعتمد نظام GMS على مجموعة من المكونات الإلكترونية والميكانيكية المتكاملة لضمان أداء فعال وموثوق.
+            </p>
+            <div class="bg-white p-8 rounded-xl shadow-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_349fd1.jpg-bce8781d-9713-44e2-94cc-de880a037821" alt="صورة Flex Sensor" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp3Title">Flex Sensor</h3>
+                    <p class="text-gray-600" data-key="comp3Desc">مستشعرات مرنة تُثبت على أصابع القفاز، يتغير مقاومتها عند الانثناء، وترسل إشارات مختلفة إلى الأردوينو لترجمة حركة الأصابع.</p>
+                </div>
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_349f54.jpg-eb2c8fc5-bf95-4e15-a30a-1f63a35e98ef" alt="صورة Arduino Mega 2560" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp2Title">Arduino Mega 2560</h3>
+                    <p class="text-gray-600" data-key="comp2Desc">لوحة تحكم دقيقة أكبر ذات عدد كبير من منافذ الإدخال/الإخراج والذاكرة. تُستخدم في الكرسي المتحرك للتحكم في مكونات متعددة مثل مشغلات المحركات ووحدة البلوتوث.</p>
+                </div>
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_349f1d.jpg-78c5e563-4eef-48b1-85e5-316ecd0c9133" alt="صورة Arduino Nano" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp1Title">Arduino Nano</h3>
+                    <p class="text-gray-600" data-key="comp1Desc">وحدة تحكم دقيقة صغيرة الحجم وسهلة الاستخدام. تم تثبيتها على القفاز لقراءة إشارات مستشعرات الانثناء وإرسالها عبر البلوتوث، واختيرت لصغر حجمها وخفة وزنها.</p>
+                </div>
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_349bf7.jpg-bab106bc-dc9e-4d15-97c7-576dcbfd708d" alt="صورة HC-06 Bluetooth Module" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp5Title">HC-06 Bluetooth Module</h3>
+                    <p class="text-gray-600" data-key="comp5Desc">وحدة بلوتوث تم وضعها على الكرسي المتحرك لاستقبال الإشارات من القفاز. تدعم استقبال البيانات فقط (اتصال أحادي الاتجاه)، وهي مناسبة لهذه المهمة.</p>
+                </div>
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_349b99.jpg-58bc2c87-7340-4d02-b2b8-1bc379011d8b" alt="صورة HC-05 Bluetooth Module" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp4Title">HC-05 Bluetooth Module</h3>
+                    <p class="text-gray-600" data-key="comp4Desc">وحدة بلوتوث تم تثبيتها على القفاز. ترسل أوامر الحركة لاسلكيًا إلى الكرسي المتحرك، وتدعم الاتصال ثنائي الاتجاه مما يسمح للقفاز والكرسي بالبقاء متصلين ومتزامنين بسهولة.</p>
+                </div>
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_349b78.jpg-be6d05f7-cac1-4e96-b988-c6507246f52b" alt="صورة BTS7960 Motor Driver" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp6Title">BTS7960 Motor Driver</h3>
+                    <p class="text-gray-600" data-key="comp6Desc">مشغل محركات قوي يعمل كجسر بين الأردوينو ومحركات التيار المستمر. يسمح بالتحكم في اتجاه وسرعة المحرك باستخدام إشارات من الأردوينو، ويدعم التيار والجهد العالي.</p>
+                </div>
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_34982f.jpg-ebbd1e60-4687-437e-9257-4f6721a21459" alt="صورة BMS S8 Smart" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp9Title">BMS S8 Smart</h3>
+                    <p class="text-gray-600" data-key="comp9Desc">نظام إدارة البطارية يحمي البطارية من الشحن الزائد، التفريغ الزائد، وارتفاع درجة الحرارة. يحافظ على صحة البطارية ويحسن من عمرها الافتراضي، ويضمن تشغيل البطارية بأمان وموثوقية.</p>
+                </div>
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_3497d8.jpg-cacddcfd-2dd8-4e33-9331-59d4a8ee17e2" alt="صورة MY1016Z2 DC Motor" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp7Title">MY1016Z2 DC Motor</h3>
+                    <p class="text-gray-600" data-key="comp7Desc">محرك تيار مستمر بقوة 350 واط يستخدم لدفع الكرسي المتحرك. يوفر عزم دوران قوي ويعمل بشكل جيد مع أنظمة 24 فولت، وهو قوي بما يكفي لتحريك الكرسي والتعامل مع الأحمال الثقيلة.</p>
+                </div>
+                <div class="border p-4 rounded-lg text-center flex flex-col items-center">
+                    <img src="uploaded:image_3494ce.png-56f6e3d5-cf51-4457-b964-cfeb33f192c0" alt="صورة LiFePO4 Battery (7S)" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-2" data-key="comp8Title">LiFePO4 Battery (7S)</h3>
+                    <p class="text-gray-600" data-key="comp8Desc">بطارية ليثيوم فوسفات الحديد عالية الكفاءة تتكون من سبع خلايا متصلة على التوالي (7S)، توفر الجهد والتيار اللازمين لضمان تشغيل النظام بسلاسة.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="container mx-auto py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+                <img src="https://placehold.co/1200x400/A2D2FF/ffffff?text=How+It+Works" alt="صورة توضيحية لآلية العمل" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="howItWorksTitle">كيف يعمل النظام</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="systemOverviewTitle">نظرة عامة على النظام</h3>
+                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="systemOverviewContent">
+                    يهدف هذا المشروع إلى مساعدة الأشخاص ذوي الإعاقات الجسدية من خلال تطوير كرسي متحرك ذكي يتم التحكم فيه باستخدام إيماءات اليد عبر قفاز قابل للارتداء. الهدف هو تحسين حركة واستقلالية المستخدمين ذوي القدرات الحركية المحدودة.
+                </p>
+                <p class="text-lg leading-relaxed text-gray-700" data-key="systemControlMethods">
+                    يعتمد النظام على تصميم وتنفيذ كرسي متحرك ذكي يتم التحكم فيه عبر قفاز مزود بمستشعرات الانثناء (Flex Sensors)، بالإضافة إلى إمكانية التحكم من خلال تطبيق جوال باستخدام بلوتوث HC-05.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="gloveUnitTitle">وحدة القفاز (Glove Unit)</h3>
+                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="gloveUnitContent">
+                    القفاز مزود بمستشعرات انثناء تكتشف انحناء الأصابع. يتم معالجة قيم الانحناء هذه بواسطة وحدة تحكم دقيقة (مثل الأردوينو نانو)، والتي تترجم الإيماءات إلى أوامر حركة للكرسي المتحرك (للأمام، للخلف، لليسار، لليمين). يتم إرسال أوامر الحركة لاسلكيًا إلى الكرسي باستخدام وحدة بلوتوث HC-05. [cite: 8, 11]
+                </p>
+                <h4 class="text-2xl font-bold text-blue-500 mb-2" data-key="gloveCodeLogicTitle">منطق كود القفاز:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                    <li data-key="gloveCodeLogic1">تُوصل مستشعرات الانثناء بمسامير الإدخال التناظرية في الأردوينو نانو، وتتراوح قراءاتها من 0 إلى 1023، حيث يشير 0 إلى عدم الانحناء و1023 إلى أقصى انحناء. [cite: 74, 75]</li>
+                    <li data-key="gloveCodeLogic2">تُستخدم دالة `analogRead()` لقراءة قيم المستشعرات. [cite: 76]</li>
+                    <li data-key="gloveCodeLogic3">يتم تعيين أمر افتراضي "S" (توقف)، وبناءً على قيم المستشعرات: [cite: 78]
+                        <ul class="list-circle list-inside ml-4">
+                            <li data-key="gloveCodeLogic3a">إذا كانت قيمة المستشعر الأول > 900، يكون الأمر "F" (تحرك للأمام). [cite: 79]</li>
+                            <li data-key="gloveCodeLogic3b">إذا كانت قيمة المستشعر الثالث > 880، يكون الأمر "L" (اتجه يسارًا). [cite: 80]</li>
+                            <li data-key="gloveCodeLogic3c">إذا كانت قيمة المستشعر الرابع > 900، يكون الأمر "R" (اتجه يمينًا). [cite: 80]</li>
+                        </ul>
+                    </li>
+                    <li data-key="gloveCodeLogic4">يتم إرسال الأوامر عبر البلوتوث إذا كانت مختلفة عن الأمر السابق، مع تأخير 100 مللي ثانية لتجنب الإرسال المتكرر. [cite: 83, 85]</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="wheelchairUnitTitle">وحدة الكرسي المتحرك (Wheelchair Unit)</h3>
+                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="wheelchairUnitContent">
+                    يستقبل الكرسي المتحرك الأوامر اللاسلكية من القفاز ويحتوي على قاعدة كرسي متحرك مزودة بمحركات. يستخدم الأردوينو ميجا 2560 لاستقبال الأوامر والتحكم في المحركات عبر مشغلات المحركات BTS7960. [cite: 12]
+                </p>
+                <h4 class="text-2xl font-bold text-blue-500 mb-2" data-key="wheelchairCodeLogicTitle">منطق كود الكرسي المتحرك:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                    <li data-key="wheelchairCodeLogic1">يستمع كود الأردوينو ميجا لأوامر البلوتوث المرسلة من القفاز ويتحكم في محركات الكرسي وفقًا لذلك. [cite: 86]</li>
+                    <li data-key="wheelchairCodeLogic2">تمت إضافة زر مادي للحركة الخلفية، والذي يتجاوز أوامر البلوتوث ويقوم بتشغيل الحركة الخلفية فورًا عند الضغط عليه. [cite: 87, 97]</li>
+                    <li data-key="wheelchairCodeLogic3">توجد دوال للتحكم في حركة المحركات: `moveForward()`, `moveBackward()`, `turnLeft()`, `turnRight()`, و`stopMotors()`. [cite: 90, 91, 92]</li>
+                    <li data-key="wheelchairCodeLogic4">تُستخدم بنية `switch-case` لتحديد الإجراء بناءً على الأمر المستلم ('F' -> للأمام، 'L' -> يسار، 'R' -> يمين، أي إدخال آخر يوقف المحركات). [cite: 95, 96, 97]</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="appControlTitle">التحكم عبر تطبيق الهاتف</h3>
+                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="appControlContent">
+                    بالإضافة إلى القفاز، يمكن التحكم في الكرسي عبر تطبيق مخصص للهاتف الذكي. يقوم التطبيق بإنشاء اتصال بلوتوث مع الكرسي ويتيح إرسال أوامر الحركة (للأمام، للخلف، لليسار، لليمين). [cite: 21]
+                </p>
+                <h4 class="text-2xl font-bold text-blue-500 mb-2" data-key="appLogicTitle">منطق عمل التطبيق:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                    <li data-key="appLogic1">يبحث التطبيق عن أجهزة البلوتوث المقترنة ويقوم بإنشاء اتصال مع وحدة HC-05 في الكرسي. [cite: 103, 104]</li>
+                    <li data-key="appLogic2">يتم إرسال الأوامر (كـ `String`) إلى جهاز البلوتوث المتصل عبر دالة `sendMessage()`. [cite: 107]</li>
+                    <li data-key="appLogic3">يبدأ التطبيق خيطًا في الخلفية للاستماع باستمرار للبيانات الواردة من الكرسي المتحرك. [cite: 108]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="challenges" class="container mx-auto py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+                <img src="https://placehold.co/1200x400/FCA5A5/ffffff?text=Challenges+and+Solutions" alt="صورة تعبيرية عن التحديات والحلول" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="challengesTitle">التحديات والحلول</h2>
+            <p class="text-lg leading-relaxed text-gray-700 text-center mb-8" data-key="challengesIntro">
+                واجه مشروع الكرسي المتحرك الذكي العديد من المخاطر المحتملة أثناء التطوير والتشغيل. لقد قمنا بتحديد هذه التحديات ووضع حلول عملية لضمان نجاح المشروع. [cite: 140, 161]
+            </p>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="technicalRisksTitle">المخاطر الفنية والحلول</h3>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2 mb-4">
+                    <li data-key="technicalRisk1">**انخفاض دقة مستشعر الانثناء:** قد تنخفض دقة المستشعر بمرور الوقت أو مع الاستخدام المتكرر. [cite: 141]</li>
+                    <li data-key="technicalRisk2">**تداخل الإشارات اللاسلكية:** قد يحدث تداخل في إشارات البلوتوث أو Wi-Fi مما يؤدي إلى تأخر الاستجابة. [cite: 142]</li>
+                    <li data-key="technicalRisk3">**عدم التوافق بين المكونات:** احتمالية عدم التوافق بين المستشعرات، وحدات التحكم الدقيقة، والتطبيق. [cite: 143]</li>
+                    <li data-key="technicalRisk4">**فشل النظام غير المتوقع:** احتمال حدوث فشل في النظام أثناء التشغيل بسبب فقدان الإشارة أو عطل في الأجهزة. [cite: 144]</li>
+                </ul>
+                <h4 class="text-2xl font-bold text-green-600 mb-2" data-key="technicalSolutionsTitle">الحلول المقترحة:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                    <li data-key="technicalSolution1">استخدام مستشعرات انثناء عالية الجودة ذات أداء وموثوقية ومتانة عالية. [cite: 163]</li>
+                    <li data-key="technicalSolution2">تنفيذ معايرة منتظمة للمستشعرات للحفاظ على الدقة. [cite: 163]</li>
+                    <li data-key="technicalSolution3">ضمان التوافق بين مكونات الأجهزة من خلال اختبار التكامل المبكر. [cite: 164]</li>
+                    <li data-key="technicalSolution4">تصميم آلية أمان (fail-safe) لإيقاف النظام في حالة فقدان الإشارة أو حدوث عطل. [cite: 165]</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="softwareRisksTitle">مخاطر البرمجيات والحلول</h3>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2 mb-4">
+                    <li data-key="softwareRisk1">أخطاء البرمجة التي قد تسبب تعطل التطبيق أو تعطله.</li>
+                    <li data-key="softwareRisk2">تأخر في إرسال أو استقبال أوامر التحكم. [cite: 145]</li>
+                    <li data-key="softwareRisk3">مشاكل في إنشاء أو الحفاظ على اتصال مستقر بين التطبيق ووحدة التحكم. [cite: 146]</li>
+                </ul>
+                <h4 class="text-2xl font-bold text-green-600 mb-2" data-key="softwareSolutionsTitle">الحلول المقترحة:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                    <li data-key="softwareSolution1">إجراء مراجعات شاملة للكود واختبارات مكثفة لتقليل أخطاء البرمجة. [cite: 167]</li>
+                    <li data-key="softwareSolution2">تحسين بروتوكولات الاتصال لتقليل وقت الاستجابة. [cite: 167]</li>
+                    <li data-key="softwareSolution3">استخدام مكتبات قوية ووحدات اتصال موثوقة لضمان استقرار الاتصال. [cite: 168]</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="hardwareRisksTitle">مخاطر الأجهزة والحلول</h3>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2 mb-4">
+                    <li data-key="hardwareRisk1">استنزاف البطارية أثناء الاستخدام مما قد يسبب توقف الكرسي فجأة. [cite: 147]</li>
+                    <li data-key="hardwareRisk2">ارتفاع درجة حرارة المكونات مثل المحركات أو لوحات التحكم. [cite: 147]</li>
+                    <li data-key="hardwareRisk3">تلف مستشعر الانثناء أو القفاز بسبب الاستخدام المفرط أو سوء التصميم. [cite: 148]</li>
+                </ul>
+                <h4 class="text-2xl font-bold text-green-600 mb-2" data-key="hardwareSolutionsTitle">الحلول المقترحة:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                    <li data-key="hardwareSolution1">استخدام بطاريات قابلة لإعادة الشحن مزودة بمؤشرات شحن لمنع التوقفات غير المتوقعة. [cite: 170]</li>
+                    <li data-key="hardwareSolution2">دمج حماية حرارية أو مكونات تبريد لمنع ارتفاع درجة الحرارة. [cite: 170]</li>
+                    <li data-key="hardwareSolution3">اختيار مواد متينة للقفاز والمستشعرات لتقليل مخاطر التلف. [cite: 171]</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="safetyRisksTitle">مخاطر السلامة والحلول</h3>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2 mb-4">
+                    <li data-key="safetyRisk1">عدم وجود زر إيقاف طوارئ قد يؤدي إلى استمرار الحركة أثناء الأخطاء. [cite: 154]</li>
+                    <li data-key="safetyRisk2">احتمالية انقلاب الكرسي المتحرك بسبب عدم التوازن أو الحركات الحادة. [cite: 155]</li>
+                    <li data-key="safetyRisk3">حركات مفاجئة ناتجة عن إشارات إدخال مفسرة بشكل خاطئ. [cite: 157]</li>
+                </ul>
+                <h4 class="text-2xl font-bold text-green-600 mb-2" data-key="safetySolutionsTitle">الحلول المقترحة:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                    <li data-key="safetySolution1">تضمين زر إيقاف طوارئ سهل الوصول إليه. [cite: 176]</li>
+                    <li data-key="safetySolution2">تصميم الكرسي المتحرك بمركز ثقل منخفض لتحقيق توازن أفضل. [cite: 177]</li>
+                    <li data-key="safetySolution3">تحديد السرعة ودمج مستشعرات لاكتشاف العوائق. [cite: 178]</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="team" class="container mx-auto py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+                <img src="https://placehold.co/1200x400/DA70D6/ffffff?text=Our+Team" alt="صورة تعبيرية عن فريق العمل" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="teamTitle">فريق العمل</h2>
+            <p class="text-lg leading-relaxed text-gray-700 text-center mb-8" data-key="teamIntro">
+                نحن فريق من الطلاب المتحمسين من جامعة حلوان، اجتمعنا لتقديم حل مبتكر يخدم المجتمع من خلال مشروع تخرجنا.
+            </p>
+            <div class="bg-white p-8 rounded-xl shadow-lg">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-blue-600 mb-4" data-key="groupLeader">قائد المجموعة:</h3>
+                    <div class="p-4 border border-blue-500 rounded-lg inline-block">
+                        <img src="https://via.placeholder.co/100x100/6A5ACD/FFFFFF?text=Leader" alt="صورة قائد المجموعة" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="leaderName">Mohamed Khaled Ameen</p>
+                    </div>
+                </div>
+
+                <h3 class="text-2xl font-bold text-blue-600 text-center mb-6" data-key="teamMembers">أعضاء الفريق:</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member1">Demiana Zaref Gamel</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member2">Fady Nashaat Erian</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member3">Roaa Osama Abdelrahman</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member4">Eyad Emad Mohammed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member5">Nouran Mohamed Mahmoud</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member6">Kerolos Wael Ibrahim</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member7">Donia Ahmed Abdelhmed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member8">Marterous Maher Fawzy</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member9">Abdallah Shaban</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member10">Fatma Sabry Ahmed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member11">Mazen Moamen Mohamed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member12">Farha Yasser Mohamed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member13">Mohamed Ahmed Mohamed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member14">Nada Mohamed Al-Sayed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member15">Mohamed Hassanin Mohamed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-xl font-semibold" data-key="member16">Bavly Wafer Ebrahim</p>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <h3 class="text-2xl font-bold mb-4" data-key="supervisorsTitle">المشرفون:</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
+                        <div class="p-4 border rounded-lg w-full max-w-sm">
+                            <img src="https://via.placeholder.co/100x100/8A2BE2/FFFFFF?text=Supervisor" alt="صورة المشرف" class="rounded-full mx-auto mb-4">
+                            <p class="text-xl font-semibold" data-key="supervisor1">Dr. Ahmed Hassan</p>
+                        </div>
+                        <div class="p-4 border rounded-lg w-full max-w-sm">
+                            <img src="https://via.placeholder.co/100x100/8A2BE2/FFFFFF?text=Supervisor" alt="صورة المشرف" class="rounded-full mx-auto mb-4">
+                            <p class="text-xl font-semibold" data-key="supervisor2">Eng. Soha Magdy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container mx-auto py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+                <img src="https://placehold.co/1200x400/FFD700/000000?text=Contact+Us" alt="صورة تعبيرية عن التواصل" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="contactTitle">تواصل معنا</h2>
+            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="contactText1">
+                    يسعدنا الإجابة على استفساراتكم وتلقي ملاحظاتكم. يمكنكم التواصل معنا عبر البريد الإلكتروني:
+                </p>
+                <a href="mailto:midoamin849@gmail.com" class="text-blue-600 hover:underline text-xl font-semibold" data-key="contactEmail">
+                    midoamin849@gmail.com
+                </a>
+                <p class="text-lg leading-relaxed text-gray-700 mt-4" data-key="contactText2">
+                    أو تابعوا آخر أخبار المشروع عبر قنواتنا الاجتماعية (روابط وهمية حالياً):
+                </p>
+                <div class="flex justify-center space-x-6 space-x-reverse mt-6">
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out" title="Instagram (رابط وهمي)">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.779 1.624 4.938 4.851.07 1.266.082 1.647.082 4.85s-.012 3.584-.07 4.85c-.148 3.252-1.624 4.779-4.85 4.938-1.266.07-1.647.082-4.85.082s-3.584-.012-4.85-.07c-3.252-.148-4.779-1.624-4.938-4.85-.07-1.266-.082-1.647-.082-4.85s.012-3.584.07-4.85c.148-3.252 1.624-4.779 4.85-4.938 1.266-.07 1.647-.082 4.85-.082zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98C.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.28.058 1.688.072 4.948.072s3.668-.014 4.948-.072c4.357-.2 6.78-2.618 6.979-6.98.059-1.28.073-1.688.073-4.948s-.014-3.668-.072-4.947c-.2-4.358-2.618-6.78-6.979-6.98-1.28-.059-1.688-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.826-9.513c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.783 1.75-1.75 1.75z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out" title="Twitter (رابط وهمي)">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M22.46 6c-.8.37-1.58.62-2.4.73.87-.52 1.52-1.35 1.83-2.33-.82.49-1.72.84-2.65 1.02-.78-.83-1.89-1.35-3.13-1.35-2.36 0-4.28 1.92-4.28 4.29 0 .34.04.67.11.98C8.28 9.1 4.3 7.02 1.62 3.8c-.35.61-.55 1.3-.55 2.05 0 1.49.76 2.8 1.92 3.56-.7-.02-1.37-.21-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.22-.36.1-.74.15-1.13.15-.28 0-.55-.03-.81-.08.54 1.7 2.12 2.94 3.99 2.97-1.47 1.15-3.32 1.84-5.32 1.84-.35 0-.69-.02-1.03-.06C2.86 20.1 5.02 21 7.37 21c8.84 0 13.67-7.3 13.67-13.68 0-.21-.01-.42-.01-.63.94-.68 1.76-1.53 2.41-2.5z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out" title="LinkedIn (رابط وهمي)">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M.057 24L1.643 9.309H.057V0h23.943v9.309h-1.586L23.943 24zM2.812 21.09h18.376l-1.47-11.777H2.812z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-6 mt-auto rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p data-key="footerRights">&copy; 2025 GMS - Glove Motion System. جميع الحقوق محفوظة لجامعة حلوان.</p>
+            <p class="text-sm mt-2" data-key="footerPreparedBy">Prepared by: فريق مشروع التخرج</p>
+        </div>
+    </footer>
+
+    <script>
+        // كائن الترجمات
+        const translations = {
+            ar: {
+                pageTitle: "GMS - Glove Motion System",
+                universityName: "جامعة حلوان",
+                navHome: "الرئيسية",
+                navAbout: "عن المشروع",
+                navFeatures: "المميزات",
+                navComponents: "المكونات",
+                navHowItWorks: "كيف يعمل", // تم إضافة مفتاح جديد
+                navChallenges: "التحديات والحلول", // تم إضافة مفتاح جديد
+                navTeam: "فريق العمل",
+                navContact: "تواصل معنا",
+                heroTitle: "GMS - Glove Motion System",
+                heroSlogan: "\"Your power is in your hand\"",
+                heroDescription: "كرسي متحرك ذكي يتم التحكم فيه بإيماءات اليد لمساعدة ذوي الاحتياجات الجسدية على تعزيز حركتهم واستقلاليتهم.",
+                heroButton: "اكتشف المزيد عن مشروعنا",
+                aboutTitle: "عن المشروع",
+                aboutIntro: "في عالمنا الحديث، أصبحت التكنولوجيا عنصرًا حيويًا في تحسين جودة الحياة، خاصة للأفراد ذوي الاحتياجات الخاصة. من هذا المنطلق، تزايدت الحاجة إلى تطوير حلول تنقل أكثر ذكاءً ومرونة تمكن الأشخاص ذوي الإعاقات الجسدية من الاعتماد على أنفسهم بشكل أكبر وتعزيز استقلاليتهم. يهدف هذا المشروع إلى تصميم وتنفيذ كرسي متحرك ذكي يتم التحكم فيه عبر قفاز ذكي مزود بمستشعرات الانثناء (Flex Sensors)، بالإضافة إلى التحكم من خلال تطبيق جوال باستخدام بلوتوث HC-05.",
+                aboutSystemOverview: "يعتمد النظام على الأردوينو نانو (Arduino Nano) كوحدة تحكم رئيسية داخل القفاز، والتي ترسل إشارات لاسلكية إلى الكرسي المتحرك. يشتمل الكرسي نفسه على محركات 24 فولت، ووحدتي PTS للتحكم في الحركة، ووحدة بلوتوث مخصصة، وأردوينو ميجا (Arduino Mega) لاستقبال الإشارات. يتم تضمين بطارية قابلة لإعادة الشحن لتوفير طاقة تشغيل مستقرة.",
+                simulationTitle: "المحاكاة والبرمجة",
+                simulationDesc: "تم بناء محاكاة نظام التحكم الذكي للكرسي المتحرك باستخدام برنامج Proteus لاختبار النظام والتحقق من صحته قبل التنفيذ الفعلي. تتكون الدائرة من جزأين رئيسيين: وحدة القفاز الذكي التي تحتوي على أردوينو نانو، مستشعرات الانثناء، ووحدة بلوتوث HC-05؛ ووحدة الكرسي المتحرك التي تتضمن أردوينو ميجا 2560، ووحدة بلوتوث أخرى لاستقبال الإشارات، ومشغل محركات.",
+                programmingDesc: "يتم تصميم كود القفاز لقراءة القيم من مستشعرات الانثناء الثلاثة وإرسال أوامر التحكم لاسلكيًا عبر البلوتوث. أما كود الكرسي المتحرك فيستقبل هذه الأوامر ويتحكم في محركات الكرسي وفقًا لذلك، مع إضافة زر مادي للحركة الخلفية اليدوية كخيار تحكم إضافي.",
+                resultsTitle: "النتائج والخاتمة",
+                resultsContent: "أظهرت النتائج استجابة ودقة عالية في ترجمة إيماءات اليد إلى حركة في الوقت الفعلي، مما يؤكد فعالية النظام. في الختام، حقق المشروع هدفه الرئيسي من خلال تقديم حل عملي للتحكم القائم على الإيماءات. يمكن أن تشمل التحسينات المستقبلية اكتشاف العوائق، وتعديل السرعة، أو دمج التحكم الصوتي لتعزيز سهولة الاستخدام والسلامة. يمثل هذا المشروع خطوة عملية نحو دمج الإلكترونيات والبرمجة والميكانيكا في منتج واقعي يخدم المجتمع.",
+                featuresTitle: "مميزات المشروع",
+                featuresIntro: "يتميز مشروعنا \"GMS - Glove Motion System\" بالعديد من الخصائص المبتكرة التي تجعله حلاً فعالاً ومساعداً للأشخاص ذوي الاحتياجات الخاصة.",
+                feature1Title: "سهولة التحكم",
+                feature1Desc: "يوفر النظام طريقة تحكم بسيطة وسهلة الاستخدام، تمكن المستخدم من التحكم في حركة الكرسي باستخدام حركة أصابعه فقط.",
+                feature2Title: "دقة الاستجابة",
+                feature2Desc: "يتميز النظام بقدرته على قراءة حركة كل إصبع بدقة، مما يتيح تحديد الاتجاه المطلوب (يمين، يسار، أمام، خلف) بناءً على انحناء الأصابع.",
+                feature3Title: "أمان معزز",
+                feature3Desc: "يشتمل النظام على آلية أمان فعالة، حيث يتوقف الكرسي المتحرك تلقائيًا عن الحركة عندما يتوقف المستخدم عن تحريك أصابعه، لتجنب الحوادث أو الحركات غير المقصودة.",
+                feature4Title: "بطارية قابلة لإعادة الشحن",
+                feature4Desc: "يعمل لساعات طويلة دون الحاجة للشحن المستمر، ويوفر استقلالية أكبر للمستخدم بفضل بطاريته القابلة لإعادة الشحن.",
+                feature5Title: "تحكم عبر الهاتف الذكي",
+                feature5Desc: "إمكانية التحكم بالكرسي عبر تطبيق الهاتف الذكي كبديل للقفاز في حالات الطوارئ أو الراحة.",
+                feature6Title: "مرونة التطوير",
+                feature6Desc: "تصميم المشروع يتمتع بمرونة كبيرة للتحديثات المستقبلية، مما يتيح إضافة العديد من الميزات الجديدة بسهولة.",
+                componentsTitle: "المكونات الأساسية",
+                componentsIntro: "يعتمد نظام GMS على مجموعة من المكونات الإلكترونية والميكانيكية المتكاملة لضمان أداء فعال وموثوق.",
+                comp1Title: "Arduino Nano",
+                comp1Desc: "وحدة تحكم دقيقة صغيرة الحجم وسهلة الاستخدام. تم تثبيتها على القفاز لقراءة إشارات مستشعرات الانثناء وإرسالها عبر البلوتوث، واختيرت لصغر حجمها وخفة وزنها.",
+                comp2Title: "Arduino Mega 2560",
+                comp2Desc: "لوحة تحكم دقيقة أكبر ذات عدد كبير من منافذ الإدخال/الإخراج والذاكرة. تُستخدم في الكرسي المتحرك للتحكم في مكونات متعددة مثل مشغلات المحركات ووحدة البلوتوث.",
+                comp3Title: "Flex Sensor",
+                comp3Desc: "مستشعرات مرنة تُثبت على أصابع القفاز، يتغير مقاومتها عند الانثناء، وترسل إشارات مختلفة إلى الأردوينو لترجمة حركة الأصابع.",
+                comp4Title: "HC-05 Bluetooth Module",
+                comp4Desc: "وحدة بلوتوث ثنائية الاتجاه تُستخدم في القفاز لإرسال أوامر الحركة لاسلكيًا إلى الكرسي المتحرك، مما يضمن اتصالاً متزامنًا.",
+                comp5Title: "HC-06 Bluetooth Module",
+                comp5Desc: "وحدة بلوتوث أحادية الاتجاه تُستخدم في الكرسي المتحرك لاستقبال الإشارات من القفاز. تدعم استقبال البيانات فقط (اتصال أحادي الاتجاه)، وهي مناسبة لهذه المهمة.",
+                comp6Title: "BTS7960 Motor Driver",
+                comp6Desc: "مشغل محركات قوي يعمل كجسر بين الأردوينو ومحركات التيار المستمر. يسمح بالتحكم في اتجاه وسرعة المحرك باستخدام إشارات من الأردوينو، ويدعم التيار والجهد العالي.",
+                comp7Title: "MY1016Z2 DC Motor",
+                comp7Desc: "محرك تيار مستمر بقوة 350 واط يستخدم لدفع الكرسي المتحرك. يوفر عزم دوران قوي ويعمل بشكل جيد مع أنظمة 24 فولت، وهو قوي بما يكفي لتحريك الكرسي والتعامل مع الأحمال الثقيلة.",
+                comp8Title: "LiFePO4 Battery (7S)",
+                comp8Desc: "بطارية ليثيوم فوسفات الحديد عالية الكفاءة تتكون من سبع خلايا متصلة على التوالي (7S)، توفر الجهد والتيار اللازمين لضمان تشغيل النظام بسلاسة.",
+                comp9Title: "BMS S8 Smart",
+                comp9Desc: "نظام إدارة البطارية يحمي البطارية من الشحن الزائد، التفريغ الزائد، وارتفاع درجة الحرارة. يحافظ على صحة البطارية ويحسن من عمرها الافتراضي، ويضمن تشغيل البطارية بأمان وموثوقية.",
+                howItWorksTitle: "كيف يعمل النظام",
+                systemOverviewTitle: "نظرة عامة على النظام",
+                systemOverviewContent: "يهدف هذا المشروع إلى مساعدة الأشخاص ذوي الإعاقات الجسدية من خلال تطوير كرسي متحرك ذكي يتم التحكم فيه باستخدام إيماءات اليد عبر قفاز قابل للارتداء. الهدف هو تحسين حركة واستقلالية المستخدمين ذوي القدرات الحركية المحدودة.",
+                systemControlMethods: "يعتمد النظام على تصميم وتنفيذ كرسي متحرك ذكي يتم التحكم فيه عبر قفاز مزود بمستشعرات الانثناء (Flex Sensors)، بالإضافة إلى إمكانية التحكم من خلال تطبيق جوال باستخدام بلوتوث HC-05.",
+                gloveUnitTitle: "وحدة القفاز (Glove Unit)",
+                gloveUnitContent: "القفاز مزود بمستشعرات انثناء تكتشف انحناء الأصابع. يتم معالجة قيم الانحناء هذه بواسطة وحدة تحكم دقيقة (مثل الأردوينو نانو)، والتي تترجم الإيماءات إلى أوامر حركة للكرسي المتحرك (للأمام، للخلف، لليسار، لليمين). يتم إرسال أوامر الحركة لاسلكيًا إلى الكرسي باستخدام وحدة بلوتوث HC-05. [cite: 8, 11]",
+                gloveCodeLogicTitle: "منطق كود القفاز:",
+                gloveCodeLogic1: "تُوصل مستشعرات الانثناء بمسامير الإدخال التناظرية في الأردوينو نانو، وتتراوح قراءاتها من 0 إلى 1023، حيث يشير 0 إلى عدم الانحناء و1023 إلى أقصى انحناء. [cite: 74, 75]",
+                gloveCodeLogic2: "تُستخدم دالة `analogRead()` لقراءة قيم المستشعرات. [cite: 76]",
+                gloveCodeLogic3: "يتم تعيين أمر افتراضي \"S\" (توقف)، وبناءً على قيم المستشعرات: [cite: 78]",
+                gloveCodeLogic3a: "إذا كانت قيمة المستشعر الأول > 900، يكون الأمر \"F\" (تحرك للأمام). [cite: 79]",
+                gloveCodeLogic3b: "إذا كانت قيمة المستشعر الثالث > 880، يكون الأمر \"L\" (اتجه يسارًا). [cite: 80]",
+                gloveCodeLogic3c: "إذا كانت قيمة المستشعر الرابع > 900، يكون الأمر \"R\" (اتجه يمينًا). [cite: 80]",
+                gloveCodeLogic4: "يتم إرسال الأوامر عبر البلوتوث إذا كانت مختلفة عن الأمر السابق، مع تأخير 100 مللي ثانية لتجنب الإرسال المتكرر. [cite: 83, 85]",
+                wheelchairUnitTitle: "وحدة الكرسي المتحرك (Wheelchair Unit)",
+                wheelchairUnitContent: "يستقبل الكرسي المتحرك الأوامر اللاسلكية من القفاز ويحتوي على قاعدة كرسي متحرك مزودة بمحركات. يستخدم الأردوينو ميجا 2560 لاستقبال الأوامر والتحكم في المحركات عبر مشغلات المحركات BTS7960. [cite: 12]",
+                wheelchairCodeLogicTitle: "منطق كود الكرسي المتحرك:",
+                wheelchairCodeLogic1: "يستمع كود الأردوينو ميجا لأوامر البلوتوث المرسلة من القفاز ويتحكم في محركات الكرسي وفقًا لذلك. [cite: 86]",
+                wheelchairCodeLogic2: "تمت إضافة زر مادي للحركة الخلفية، والذي يتجاوز أوامر البلوتوث ويقوم بتشغيل الحركة الخلفية فورًا عند الضغط عليه. [cite: 87, 97]",
+                wheelchairCodeLogic3: "توجد دوال للتحكم في حركة المحركات: `moveForward()`, `moveBackward()`, `turnLeft()`, `turnRight()`, و`stopMotors()`. [cite: 90, 91, 92]",
+                wheelchairCodeLogic4: "تُستخدم بنية `switch-case` لتحديد الإجراء بناءً على الأمر المستلم ('F' -> للأمام، 'L' -> يسار، 'R' -> يمين، أي إدخال آخر يوقف المحركات). [cite: 95, 96, 97]",
+                appControlTitle: "التحكم عبر تطبيق الهاتف",
+                appControlContent: "بالإضافة إلى القفاز، يمكن التحكم في الكرسي عبر تطبيق مخصص للهاتف الذكي. يقوم التطبيق بإنشاء اتصال بلوتوث مع الكرسي ويتيح إرسال أوامر الحركة (للأمام، للخلف، لليسار، لليمين). [cite: 21]",
+                appLogicTitle: "منطق عمل التطبيق:",
+                appLogic1: "يبحث التطبيق عن أجهزة البلوتوث المقترنة ويقوم بإنشاء اتصال مع وحدة HC-05 في الكرسي. [cite: 103, 104]",
+                appLogic2: "يتم إرسال الأوامر (كـ `String`) إلى جهاز البلوتوث المتصل عبر دالة `sendMessage()` . [cite: 107]",
+                appLogic3: "يبدأ التطبيق خيطًا في الخلفية للاستماع باستمرار للبيانات الواردة من الكرسي المتحرك. [cite: 108]",
+                challengesTitle: "التحديات والحلول",
+                challengesIntro: "واجه مشروع الكرسي المتحرك الذكي العديد من المخاطر المحتملة أثناء التطوير والتشغيل. لقد قمنا بتحديد هذه التحديات ووضع حلول عملية لضمان نجاح المشروع. [cite: 140, 161]",
+                technicalRisksTitle: "المخاطر الفنية والحلول",
+                technicalRisk1: "انخفاض دقة مستشعر الانثناء: قد تنخفض دقة المستشعر بمرور الوقت أو مع الاستخدام المتكرر. [cite: 141]",
+                technicalRisk2: "تداخل الإشارات اللاسلكية: قد يحدث تداخل في إشارات البلوتوث أو Wi-Fi مما يؤدي إلى تأخر الاستجابة. [cite: 142]",
+                technicalRisk3: "عدم التوافق بين المكونات: احتمالية عدم التوافق بين المستشعرات، وحدات التحكم الدقيقة، والتطبيق. [cite: 143]",
+                technicalRisk4: "فشل النظام غير المتوقع: احتمال حدوث فشل في النظام أثناء التشغيل بسبب فقدان الإشارة أو عطل في الأجهزة. [cite: 144]",
+                technicalSolutionsTitle: "الحلول المقترحة:",
+                technicalSolution1: "استخدام مستشعرات انثناء عالية الجودة ذات أداء وموثوقية ومتانة عالية. [cite: 163]",
+                technicalSolution2: "تنفيذ معايرة منتظمة للمستشعرات للحفاظ على الدقة. [cite: 163]",
+                technicalSolution3: "ضمان التوافق بين مكونات الأجهزة من خلال اختبار التكامل المبكر. [cite: 164]",
+                technicalSolution4: "تصميم آلية أمان (fail-safe) لإيقاف النظام في حالة فقدان الإشارة أو حدوث عطل. [cite: 165]",
+                softwareRisksTitle: "مخاطر البرمجيات والحلول",
+                softwareRisk1: "أخطاء البرمجة التي قد تسبب تعطل التطبيق أو تعطله.",
+                softwareRisk2: "تأخر في إرسال أو استقبال أوامر التحكم. [cite: 145]",
+                softwareRisk3: "مشاكل في إنشاء أو الحفاظ على اتصال مستقر بين التطبيق ووحدة التحكم. [cite: 146]",
+                softwareSolutionsTitle: "الحلول المقترحة:",
+                softwareSolution1: "إجراء مراجعات شاملة للكود واختبارات مكثفة لتقليل أخطاء البرمجة. [cite: 167]",
+                softwareSolution2: "تحسين بروتوكولات الاتصال لتقليل وقت الاستجابة. [cite: 167]",
+                softwareSolution3: "استخدام مكتبات قوية ووحدات اتصال موثوقة لضمان استقرار الاتصال. [cite: 168]",
+                hardwareRisksTitle: "مخاطر الأجهزة والحلول",
+                hardwareRisk1: "استنزاف البطارية أثناء الاستخدام مما قد يسبب توقف الكرسي فجأة. [cite: 147]",
+                hardwareRisk2: "ارتفاع درجة حرارة المكونات مثل المحركات أو لوحات التحكم. [cite: 147]",
+                hardwareRisk3: "تلف مستشعر الانثناء أو القفاز بسبب الاستخدام المفرط أو سوء التصميم. [cite: 148]",
+                hardwareSolutionsTitle: "الحلول المقترحة:",
+                hardwareSolution1: "استخدام بطاريات قابلة لإعادة الشحن مزودة بمؤشرات شحن لمنع التوقفات غير المتوقعة. [cite: 170]",
+                hardwareSolution2: "دمج حماية حرارية أو مكونات تبريد لمنع ارتفاع درجة الحرارة. [cite: 170]",
+                hardwareSolution3: "اختيار مواد متينة للقفاز والمستشعرات لتقليل مخاطر التلف. [cite: 171]",
+                safetyRisksTitle: "مخاطر السلامة والحلول",
+                safetyRisk1: "عدم وجود زر إيقاف طوارئ قد يؤدي إلى استمرار الحركة أثناء الأخطاء. [cite: 154]",
+                safetyRisk2: "احتمالية انقلاب الكرسي المتحرك بسبب عدم التوازن أو الحركات الحادة. [cite: 155]",
+                safetyRisk3: "حركات مفاجئة ناتجة عن إشارات إدخال مفسرة بشكل خاطئ. [cite: 157]",
+                safetySolutionsTitle: "الحلول المقترحة:",
+                safetySolution1: "تضمين زر إيقاف طوارئ سهل الوصول إليه. [cite: 176]",
+                safetySolution2: "تصميم الكرسي المتحرك بمركز ثقل منخفض لتحقيق توازن أفضل. [cite: 177]",
+                safetySolution3: "تحديد السرعة ودمج مستشعرات لاكتشاف العوائق. [cite: 178]",
+                teamTitle: "فريق العمل",
+                teamIntro: "نحن فريق من الطلاب المتحمسين من جامعة حلوان، اجتمعنا لتقديم حل مبتكر يخدم المجتمع من خلال مشروع تخرجنا.",
+                groupLeader: "قائد المجموعة:",
+                leaderName: "Mohamed Khaled Ameen",
+                teamMembers: "أعضاء الفريق:",
+                member1: "Demiana Zaref Gamel",
+                member2: "Fady Nashaat Erian",
+                member3: "Roaa Osama Abdelrahman",
+                member4: "Eyad Emad Mohammed",
+                member5: "Nouran Mohamed Mahmoud",
+                member6: "Kerolos Wael Ibrahim",
+                member7: "Donia Ahmed Abdelhmed",
+                member8: "Marterous Maher Fawzy",
+                member9: "Abdallah Shaban",
+                member10: "Fatma Sabry Ahmed",
+                member11: "Mazen Moamen Mohamed",
+                member12: "Farha Yasser Mohamed",
+                member13: "Mohamed Ahmed Mohamed",
+                member14: "Nada Mohamed Al-Sayed",
+                member15: "Mohamed Hassanin Mohamed",
+                member16: "Bavly Wafer Ebrahim",
+                supervisorsTitle: "المشرفون:",
+                supervisor1: "Dr. Ahmed Hassan",
+                supervisor2: "Eng. Soha Magdy",
+                contactTitle: "تواصل معنا",
+                contactText1: "يسعدنا الإجابة على استفساراتكم وتلقي ملاحظاتكم. يمكنكم التواصل معنا عبر البريد الإلكتروني:",
+                contactEmail: "midoamin849@gmail.com",
+                contactText2: "أو تابعوا آخر أخبار المشروع عبر قنواتنا الاجتماعية (روابط وهمية حالياً):",
+                footerRights: "&copy; 2025 GMS - Glove Motion System. جميع الحقوق محفوظة لجامعة حلوان.",
+                footerPreparedBy: "Prepared by: فريق مشروع التخرج",
+                themeToggleText: "وضع داكن"
+            },
+            en: {
+                pageTitle: "GMS - Glove Motion System",
+                universityName: "Helwan University",
+                navHome: "Home",
+                navAbout: "About Project",
+                navFeatures: "Features",
+                navComponents: "Components",
+                navHowItWorks: "How It Works",
+                navChallenges: "Challenges & Solutions",
+                navTeam: "Team",
+                navContact: "Contact Us",
+                heroTitle: "GMS - Glove Motion System",
+                heroSlogan: "\"Your power is in your hand\"",
+                heroDescription: "A smart wheelchair controlled by hand gestures to help people with physical disabilities enhance their mobility and independence.",
+                heroButton: "Discover More About Our Project",
+                aboutTitle: "About the Project",
+                aboutIntro: "In our modern world, technology has become a vital element in improving the quality of life, especially for individuals with special needs. From this standpoint, there has been an increasing need to develop smarter and more flexible mobility solutions that enable people with physical disabilities to rely more on themselves and enhance their independence. This project aims to design and implement a smart wheelchair controlled via a smart glove equipped with Flex Sensors, in addition to control through a mobile application using Bluetooth HC-05.",
+                aboutSystemOverview: "The system relies on an Arduino Nano as the main controller inside the glove, which sends wireless signals to the wheelchair. The chair itself includes 24V motors, two PTS units for motion control, a dedicated Bluetooth module, and an Arduino Mega for receiving signals. A rechargeable battery is included to provide stable operational power.",
+                simulationTitle: "Simulation and Programming",
+                simulationDesc: "The smart wheelchair control system simulation was built using Proteus software to test and validate the system before physical implementation. The circuit consists of two main parts: the smart glove unit containing an Arduino Nano, flex sensors, and an HC-05 Bluetooth module; and the wheelchair unit which includes an Arduino Mega 2560, another Bluetooth module to receive signals, and a motor driver.",
+                programmingDesc: "The glove code is designed to read values from three flex sensors attached to the glove and send control commands wirelessly via Bluetooth. The wheelchair code receives these commands and controls the wheelchair's motors accordingly, with a physical button added for manual backward movement as an additional control option.",
+                resultsTitle: "Results and Conclusion",
+                resultsContent: "The results demonstrated high responsiveness and accuracy in translating hand gestures into real-time movement, confirming the effectiveness of the system. In conclusion, the project achieved its main objective by offering a practical, gesture-based control solution. Future improvements could include obstacle detection, speed adjustment, or voice control integration to enhance usability and safety. This project represents a practical step toward integrating electronics, programming, and mechanics into a real-world product that serves the community.",
+                featuresTitle: "Project Features",
+                featuresIntro: "Our \"GMS - Glove Motion System\" project boasts several innovative features that make it an effective and assistive solution for individuals with special needs.",
+                feature1Title: "Ease of Control",
+                feature1Desc: "The system provides a simple and easy-to-use control method, enabling the user to control the wheelchair's movement using only the movement of their fingers.",
+                feature2Title: "Accurate Response",
+                feature2Desc: "The system is characterized by its ability to accurately read the movement of each finger, enabling precise determination of the desired direction (right, left, forward, backward) based on the curvature of the fingers.",
+                feature3Title: "Enhanced Safety",
+                feature3Desc: "The system features an effective safety mechanism, where the wheelchair automatically stops moving when the user stops moving their fingers, to avoid accidents or unintended movements.",
+                feature4Title: "Rechargeable Battery",
+                feature4Desc: "Operates for long hours without the need for constant charging, providing greater user independence due to its rechargeable battery.",
+                feature5Title: "Smartphone Control",
+                feature5Desc: "Ability to control the wheelchair via a smartphone app as an alternative to controlling gloves in case of a malfunction or for convenience.",
+                feature6Title: "Development Flexibility",
+                feature6Desc: "The project enjoys great flexibility for future updates, as many features can be added easily.",
+                componentsTitle: "Key Components",
+                componentsIntro: "The GMS system relies on a set of integrated electronic and mechanical components to ensure efficient and reliable performance.",
+                comp1Title: "Arduino Nano",
+                comp1Desc: "A small and easy-to-use microcontroller board. It was installed on the glove to read the signals from the flex sensors and send them via Bluetooth. We chose the Nano because of its small size and lightweight, which makes it perfect for wearable projects like a glove.",
+                comp2Title: "Arduino Mega 2560",
+                comp2Desc: "A larger microcontroller board that has more input/output pins and memory. It was used in the wheelchair to connect and control multiple components such as motor drivers, Bluetooth module, and other inputs.",
+                comp3Title: "Flex Sensor",
+                comp3Desc: "A bendable component that changes its resistance when it bends. These sensors were attached to the fingers of the glove. As the user moves their fingers, the sensors send different signals to the Arduino.",
+                comp4Title: "HC-05 Bluetooth Module",
+                comp4Desc: "A Bluetooth module that was installed on the glove. It sends the movement commands wirelessly to the wheelchair. We used this module because it supports two-way communication, which allows the glove and the chair to stay connected and synced easily.",
+                comp5Title: "HC-06 Bluetooth Module",
+                comp5Desc: "The HC-06 Bluetooth module was placed on the wheelchair to receive the signals from the glove. It only supports receiving data (one-way communication), which is suitable for this task.",
+                comp6Title: "BTS7960 Motor Driver",
+                comp6Desc: "A powerful motor driver that acts as a bridge between the Arduino and the DC motors. It allows us to control the motor's direction and speed using signals from the Arduino. We used it because it supports high current and voltage.",
+                comp7Title: "MY1016Z2 DC Motor",
+                comp7Desc: "The MY1016Z2 is a 350W DC motor used to drive the wheelchair. It delivers strong torque and works well with 24V systems. We selected this motor because it's powerful enough to move the chair and handle heavy loads while still being compact.",
+                comp8Title: "LiFePO4 Battery (7S)",
+                comp8Desc: "The battery we used consists of seven Lithium Iron Phosphate (LiFePO4) cells connected in series (7S), providing the necessary voltage and current to ensure the system runs smoothly.",
+                comp9Title: "BMS S8 Smart",
+                comp9Desc: "The BMS S8 Smart is a Battery Management System that protects the battery from overcharging, over-discharging, and overheating. It keeps the battery healthy and improves its lifespan.",
+                teamTitle: "Our Team",
+                teamIntro: "We are a team of enthusiastic students from Helwan University, united to deliver an innovative solution that serves the community through our graduation project.",
+                groupLeader: "Group Leader:",
+                leaderName: "Mohamed Khaled Ameen",
+                teamMembers: "Team Members:",
+                member1: "Demiana Zaref Gamel",
+                member2: "Fady Nashaat Erian",
+                member3: "Roaa Osama Abdelrahman",
+                member4: "Eyad Emad Mohammed",
+                member5: "Nouran Mohamed Mahmoud",
+                member6: "Kerolos Wael Ibrahim",
+                member7: "Donia Ahmed Abdelhmed",
+                member8: "Marterous Maher Fawzy",
+                member9: "Abdallah Shaban",
+                member10: "Fatma Sabry Ahmed",
+                member11: "Mazen Moamen Mohamed",
+                member12: "Farha Yasser Mohamed",
+                member13: "Mohamed Ahmed Mohamed",
+                member14: "Nada Mohamed Al-Sayed",
+                member15: "Mohamed Hassanin Mohamed",
+                member16: "Bavly Wafer Ebrahim",
+                supervisorsTitle: "Supervisors:",
+                supervisor1: "Dr. Ahmed Hassan",
+                supervisor2: "Eng. Soha Magdy",
+                contactTitle: "Contact Us",
+                contactText1: "We are happy to answer your inquiries and receive your feedback. You can contact us via email:",
+                contactEmail: "midoamin849@gmail.com",
+                contactText2: "Or follow the latest project news via our social media channels (placeholder links for now):",
+                footerRights: "&copy; 2025 GMS - Glove Motion System. All rights reserved to Helwan University.",
+                footerPreparedBy: "Prepared by: Graduation Project Team",
+                themeToggleText: "Light Mode"
+            }
+        };
+
+        let currentLanguage = 'ar'; // اللغة الافتراضية
+        let currentTheme = localStorage.getItem('theme') || 'light'; // الثيم الافتراضي أو المحفوظ
+        let currentActiveSectionId = 'hero'; // القسم النشط حاليًا
+
+        // دالة لتحديث محتوى الصفحة بناءً على اللغة
+        function updateContent() {
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[currentLanguage][key]) {
+                    element.innerHTML = translations[currentLanguage][key];
+                }
+            });
+
+            // تحديث اتجاه الصفحة واللغة في وسم HTML
+            document.documentElement.lang = currentLanguage;
+            document.documentElement.dir = (currentLanguage === 'ar') ? 'rtl' : 'ltr';
+            document.body.style.textAlign = (currentLanguage === 'ar') ? 'right' : 'left';
+
+            // تحديث نص زر تبديل اللغة
+            const languageToggleButton = document.getElementById('language-toggle');
+            languageToggleButton.textContent = (currentLanguage === 'ar') ? 'English' : 'العربية';
+
+            // تحديث نص زر تبديل الثيم
+            const themeToggleButton = document.getElementById('theme-toggle');
+            themeToggleButton.textContent = (currentTheme === 'light') ? translations[currentLanguage].themeToggleText : (currentLanguage === 'ar' ? 'وضع فاتح' : 'Light Mode');
+        }
+
+        // دالة لتطبيق الثيم (فاتح/داكن)
+        function applyTheme() {
+            if (currentTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            } else {
+                document.documentElement.classList.remove('dark-mode');
+            }
+            localStorage.setItem('theme', currentTheme); // حفظ الثيم المختار
+            updateContent(); // تحديث نصوص الأزرار بعد تغيير الثيم
+        }
+
+        // دالة لإظهار قسم معين وإخفاء البقية مع أنيميشن
+        function showSection(targetId) {
+            const targetSection = document.querySelector(targetId);
+            const currentActiveSection = document.getElementById(currentActiveSectionId);
+
+            if (targetSection && targetId !== `#${currentActiveSectionId}`) { // تم تعديل الشرط هنا
+                // إخفاء القسم النشط حاليًا
+                if (currentActiveSection) {
+                    currentActiveSection.classList.remove('section-visible');
+                    currentActiveSection.classList.add('section-hidden');
+                }
+
+                // إظهار القسم المستهدف
+                targetSection.classList.remove('section-hidden');
+                targetSection.classList.add('section-visible');
+
+                // تحديث القسم النشط
+                currentActiveSectionId = targetId.substring(1); // إزالة #
+
+                // التمرير السلس إلى القسم المستهدف بعد اكتمال جزء من الانتقال
+                setTimeout(() => {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 300); // تأخير بسيط للسماح ببدء أنيميشن الظهور
+            } else if (targetId === `#${currentActiveSectionId}`) { // إذا كان القسم المستهدف هو نفسه القسم النشط
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTheme(); // تطبيق الثيم المحفوظ عند التحميل
+            updateContent(); // تعيين المحتوى باللغة الافتراضية عند التحميل
+
+            // إخفاء جميع الأقسام ما عدا قسم الـ Hero عند التحميل الأولي
+            const allContentSections = document.querySelectorAll('main > section');
+            allContentSections.forEach(section => {
+                if (section.id !== 'hero') {
+                    section.classList.add('section-hidden');
+                } else {
+                    section.classList.add('section-visible');
+                }
+            });
+
+            // JavaScript للتمرير السلس إلى الأقسام وإظهارها
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault(); // منع السلوك الافتراضي للرابط (القفز المفاجئ)
+                    const targetId = this.getAttribute('href');
+                    showSection(targetId);
+                });
+            });
+
+            // حدث لزر تبديل اللغة
+            const languageToggleButton = document.getElementById('language-toggle');
+            languageToggleButton.addEventListener('click', () => {
+                currentLanguage = (currentLanguage === 'ar') ? 'en' : 'ar';
+                updateContent();
+            });
+
+            // حدث لزر تبديل الثيم
+            const themeToggleButton = document.getElementById('theme-toggle');
+            themeToggleButton.addEventListener('click', () => {
+                currentTheme = (currentTheme === 'light') ? 'dark' : 'light';
+                applyTheme();
+            });
+
+            // معالجة النقر على زر "اكتشف المزيد عن مشروعنا" في Hero Section
+            const heroDiscoverButton = document.querySelector('#hero a[href="#about"]');
+            if (heroDiscoverButton) {
+                heroDiscoverButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showSection('#about');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
