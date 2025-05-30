@@ -153,191 +153,193 @@
 <body>
 
     <header class="bg-blue-800 text-white p-4 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2 space-x-reverse"> <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/WhatsApp%20Image%202025-05-30%20at%2015.53.00_2fd4716e.jpg" alt="شعار جامعة حلوان" class="h-10 w-10 rounded-full border-2 border-white">
-                <h1 class="text-2xl font-bold" data-key="universityName">جامعة حلوان</h1>
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-2 space-x-reverse mb-2 md:mb-0"> <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/WhatsApp%20Image%202025-05-30%20at%2015.53.00_2fd4716e.jpg" alt="شعار جامعة حلوان" class="h-8 w-8 md:h-10 md:w-10 rounded-full border-2 border-white">
+                <h1 class="text-xl md:text-2xl font-bold" data-key="universityName">جامعة حلوان</h1>
             </div>
-            <nav class="flex items-center space-x-4 space-x-reverse">
-                <ul class="flex space-x-4 space-x-reverse">
-                    <li><a href="#hero" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navHome">الرئيسية</a></li>
-                    <li><a href="#about" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navAbout">عن المشروع</a></li>
-                    <li><a href="#features" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navFeatures">المميزات</a></li>
-                    <li><a href="#components" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navComponents">المكونات</a></li>
-                    <li><a href="#how-it-works" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navHowItWorks">كيف يعمل</a></li>
-                    <li><a href="#challenges" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navChallenges">التحديات والحلول</a></li>
-                    <li><a href="#team" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navTeam">فريق العمل</a></li>
-                    <li><a href="#contact" class="hover:text-blue-200 transition duration-300 ease-in-out p-2 rounded-md" data-key="navContact">تواصل معنا</a></li>
+            <nav class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 md:space-x-reverse w-full md:w-auto">
+                <ul class="flex flex-wrap justify-center space-x-2 space-x-reverse md:space-x-4 md:space-x-reverse text-sm md:text-base">
+                    <li><a href="#hero" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navHome">الرئيسية</a></li>
+                    <li><a href="#about" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navAbout">عن المشروع</a></li>
+                    <li><a href="#features" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navFeatures">المميزات</a></li>
+                    <li><a href="#components" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navComponents">المكونات</a></li>
+                    <li><a href="#how-it-works" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navHowItWorks">كيف يعمل</a></li>
+                    <li><a href="#challenges" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navChallenges">التحديات والحلول</a></li>
+                    <li><a href="#team" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navTeam">فريق العمل</a></li>
+                    <li><a href="#contact" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navContact">تواصل معنا</a></li>
                 </ul>
-                <button id="language-toggle" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
-                    English
-                </button>
-                <button id="theme-toggle" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-full transition duration-300 ease-in-out">
-                    وضع داكن
-                </button>
+                <div class="flex space-x-2 space-x-reverse mt-2 md:mt-0">
+                    <button id="language-toggle" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-3 md:py-2 md:px-4 rounded-full text-sm md:text-base transition duration-300 ease-in-out">
+                        English
+                    </button>
+                    <button id="theme-toggle" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-1 px-3 md:py-2 md:px-4 rounded-full text-sm md:text-base transition duration-300 ease-in-out">
+                        وضع داكن
+                    </button>
+                </div>
             </nav>
         </div>
     </header>
 
     <main class="flex-grow">
-        <section id="hero" class="hero-section text-white py-20 px-4 text-center shadow-inner relative overflow-hidden section-transition section-visible">
+        <section id="hero" class="hero-section text-white py-16 md:py-20 px-4 text-center shadow-inner relative overflow-hidden section-transition section-visible">
             <div class="absolute inset-0 bg-opacity-20 bg-black z-0"></div> <div class="container mx-auto relative z-10">
-                <h2 class="text-5xl md:text-6xl font-extrabold mb-4 animate-fade-in-down" data-key="heroTitle">
+                <h2 class="text-4xl md:text-6xl font-extrabold mb-3 md:mb-4 animate-fade-in-down">
                     GMS - Glove Motion System
                 </h2>
-                <p class="text-2xl md:text-3xl font-semibold mb-8 animate-fade-in-up" data-key="heroSlogan">
+                <p class="text-xl md:text-3xl font-semibold mb-6 md:mb-8 animate-fade-in-up">
                     "Your power is in your hand"
                 </p>
-                <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-10 opacity-90 animate-fade-in-up delay-200" data-key="heroDescription">
+                <p class="text-base md:text-xl leading-relaxed max-w-3xl mx-auto mb-8 md:mb-10 opacity-90 animate-fade-in-up delay-200">
                     كرسي متحرك ذكي يتم التحكم فيه بإيماءات اليد لمساعدة ذوي الاحتياجات الجسدية على تعزيز حركتهم واستقلاليتهم.
                 </p>
-                <a href="#about" class="bg-white text-blue-700 hover:bg-blue-100 font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg animate-fade-in-up delay-400" data-key="heroButton">
+                <a href="#about" class="bg-white text-blue-700 hover:bg-blue-100 font-bold py-2 px-6 md:py-3 md:px-8 rounded-full text-base md:text-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-lg animate-fade-in-up delay-400">
                     اكتشف المزيد عن مشروعنا
                 </a>
             </div>
         </section>
 
-        <section id="about" class="container mx-auto py-16 px-4 section-transition section-hidden">
-            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+        <section id="about" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-40 md:h-48 mb-6 md:mb-8 rounded-xl overflow-hidden">
                 <img src="https://placehold.co/1200x400/87CEEB/ffffff?text=About+Project" alt="صورة تعبيرية عن المشروع" class="absolute inset-0 w-full h-full object-cover">
             </div>
-            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="aboutTitle">عن المشروع</h2>
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <p class="text-lg leading-relaxed text-gray-700" data-key="aboutIntro">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-8 md:mb-10" data-key="aboutTitle">عن المشروع</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700" data-key="aboutIntro">
                     في عالمنا الحديث، أصبحت التكنولوجيا عنصرًا حيويًا في تحسين جودة الحياة، خاصة للأفراد ذوي الاحتياجات الخاصة. من هذا المنطلق، تزايدت الحاجة إلى تطوير حلول تنقل أكثر ذكاءً ومرونة تمكن الأشخاص ذوي الإعاقات الجسدية من الاعتماد على أنفسهم بشكل أكبر وتعزيز استقلاليتهم. يهدف هذا المشروع إلى تصميم وتنفيذ كرسي متحرك ذكي يتم التحكم فيه عبر قفاز ذكي مزود بمستشعرات الانثناء (Flex Sensors)، بالإضافة إلى التحكم من خلال تطبيق جوال باستخدام بلوتوث HC-05.
                 </p>
-                <p class="text-lg leading-relaxed text-gray-700 mt-4" data-key="aboutSystemOverview">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700 mt-4" data-key="aboutSystemOverview">
                     يعتمد النظام على الأردوينو نانو (Arduino Nano) كوحدة تحكم رئيسية داخل القفاز، والتي ترسل إشارات لاسلكية إلى الكرسي المتحرك. يشتمل الكرسي نفسه على محركات 24 فولت، ووحدتي PTS للتحكم في الحركة، ووحدة بلوتوث مخصصة، وأردوينو ميجا (Arduino Mega) لاستقبال الإشارات. يتم تضمين بطارية قابلة لإعادة الشحن لتوفير طاقة تشغيل مستقرة.
                 </p>
             </div>
-            <h3 class="text-3xl font-bold text-blue-700 text-center mb-8" data-key="resultsTitle">النتائج والخاتمة</h3>
-            <div class="bg-white p-8 rounded-xl shadow-lg">
-                <p class="text-lg leading-relaxed text-gray-700" data-key="resultsContent">
+            <h3 class="text-2xl md:text-3xl font-bold text-blue-700 text-center mb-6 md:mb-8" data-key="resultsTitle">النتائج والخاتمة</h3>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700" data-key="resultsContent">
                     أظهرت النتائج استجابة ودقة عالية في ترجمة إيماءات اليد إلى حركة في الوقت الفعلي، مما يؤكد فعالية النظام. في الختام، حقق المشروع هدفه الرئيسي من خلال تقديم حل عملي للتحكم القائم على الإيماءات. يمكن أن تشمل التحسينات المستقبلية اكتشاف العوائق، وتعديل السرعة، أو دمج التحكم الصوتي لتعزيز سهولة الاستخدام والسلامة. يمثل هذا المشروع خطوة عملية نحو دمج الإلكترونيات والبرمجة والميكانيكا في منتج واقعي يخدم المجتمع.
                 </p>
             </div>
         </section>
 
-        <section id="features" class="container mx-auto py-16 px-4 section-transition section-hidden">
-            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+        <section id="features" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-40 md:h-48 mb-6 md:mb-8 rounded-xl overflow-hidden">
                 <img src="https://placehold.co/1200x400/90EE90/ffffff?text=Project+Features" alt="صورة تعبيرية عن المميزات" class="absolute inset-0 w-full h-full object-cover">
             </div>
-            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="featuresTitle">مميزات المشروع</h2>
-            <p class="text-lg leading-relaxed text-gray-700 text-center mb-8" data-key="featuresIntro">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-8 md:mb-10" data-key="featuresTitle">مميزات المشروع</h2>
+            <p class="text-base md:text-lg leading-relaxed text-gray-700 text-center mb-6 md:mb-8" data-key="featuresIntro">
                 يتميز مشروعنا "GMS - Glove Motion System" بالعديد من الخصائص المبتكرة التي تجعله حلاً فعالاً ومساعداً للأشخاص ذوي الاحتياجات الخاصة.
             </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
-                    <div class="text-blue-500 text-5xl mb-4">🖐️</div>
-                    <h3 class="text-2xl font-bold mb-2" data-key="feature1Title">سهولة التحكم</h3>
-                    <p class="text-gray-600" data-key="feature1Desc">يوفر النظام طريقة تحكم بسيطة وسهلة الاستخدام، تمكن المستخدم من التحكم في حركة الكرسي باستخدام حركة أصابعه فقط.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-blue-500 text-4xl md:text-5xl mb-3 md:mb-4">🖐️</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" data-key="feature1Title">سهولة التحكم</h3>
+                    <p class="text-sm md:text-base text-gray-600" data-key="feature1Desc">يوفر النظام طريقة تحكم بسيطة وسهلة الاستخدام، تمكن المستخدم من التحكم في حركة الكرسي باستخدام حركة أصابعه فقط.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
-                    <div class="text-green-500 text-5xl mb-4">⚡</div>
-                    <h3 class="text-2xl font-bold mb-2" data-key="feature2Title">دقة الاستجابة</h3>
-                    <p class="text-gray-600" data-key="feature2Desc">يتميز النظام بقدرته على قراءة حركة كل إصبع بدقة، مما يتيح تحديد الاتجاه المطلوب (يمين، يسار، أمام، خلف) بناءً على انحناء الأصابع.</p>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-green-500 text-4xl md:text-5xl mb-3 md:mb-4">⚡</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" data-key="feature2Title">دقة الاستجابة</h3>
+                    <p class="text-sm md:text-base text-gray-600" data-key="feature2Desc">يتميز النظام بقدرته على قراءة حركة كل إصبع بدقة، مما يتيح تحديد الاتجاه المطلوب (يمين، يسار، أمام، خلف) بناءً على انحناء الأصابع.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
-                    <div class="text-purple-500 text-5xl mb-4">🛡️</div>
-                    <h3 class="text-2xl font-bold mb-2" data-key="feature3Title">أمان معزز</h3>
-                    <p class="text-gray-600" data-key="feature3Desc">يشتمل النظام على آلية أمان فعالة، حيث يتوقف الكرسي المتحرك تلقائيًا عن الحركة عندما يتوقف المستخدم عن تحريك أصابعه، لتجنب الحوادث أو الحركات غير المقصودة.</p>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-purple-500 text-4xl md:text-5xl mb-3 md:mb-4">🛡️</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" data-key="feature3Title">أمان معزز</h3>
+                    <p class="text-sm md:text-base text-gray-600" data-key="feature3Desc">يشتمل النظام على آلية أمان فعالة، حيث يتوقف الكرسي المتحرك تلقائيًا عن الحركة عندما يتوقف المستخدم عن تحريك أصابعه، لتجنب الحوادث أو الحركات غير المقصودة.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
-                    <div class="text-red-500 text-5xl mb-4">🔋</div>
-                    <h3 class="text-2xl font-bold mb-2" data-key="feature4Title">بطارية قابلة لإعادة الشحن</h3>
-                    <p class="text-gray-600" data-key="feature4Desc">يعمل لساعات طويلة دون الحاجة للشحن المستمر، ويوفر استقلالية أكبر للمستخدم بفضل بطاريته القابلة لإعادة الشحن.</p>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-red-500 text-4xl md:text-5xl mb-3 md:mb-4">🔋</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" data-key="feature4Title">بطارية قابلة لإعادة الشحن</h3>
+                    <p class="text-sm md:text-base text-gray-600" data-key="feature4Desc">يعمل لساعات طويلة دون الحاجة للشحن المستمر، ويوفر استقلالية أكبر للمستخدم بفضل بطاريته القابلة لإعادة الشحن.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
-                    <div class="text-yellow-500 text-5xl mb-4">📱</div>
-                    <h3 class="text-2xl font-bold mb-2" data-key="feature5Title">تحكم عبر الهاتف الذكي</h3>
-                    <p class="text-gray-600" data-key="feature5Desc">إمكانية التحكم بالكرسي عبر تطبيق الهاتف الذكي كبديل للقفاز في حالات الطوارئ أو الراحة.</p>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-yellow-500 text-4xl md:text-5xl mb-3 md:mb-4">📱</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" data-key="feature5Title">تحكم عبر الهاتف الذكي</h3>
+                    <p class="text-sm md:text-base text-gray-600" data-key="feature5Desc">إمكانية التحكم بالكرسي عبر تطبيق الهاتف الذكي كبديل للقفاز في حالات الطوارئ أو الراحة.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
-                    <div class="text-teal-500 text-5xl mb-4">⚙️</div>
-                    <h3 class="text-2xl font-bold mb-2" data-key="feature6Title">مرونة التطوير</h3>
-                    <p class="text-gray-600" data-key="feature6Desc">تصميم المشروع يتمتع بمرونة كبيرة للتحديثات المستقبلية، مما يتيح إضافة العديد من الميزات الجديدة بسهولة.</p>
+                <div class="bg-white p-5 md:p-6 rounded-xl shadow-lg flex flex-col items-center text-center transition duration-300 ease-in-out transform hover:scale-105">
+                    <div class="text-teal-500 text-4xl md:text-5xl mb-3 md:mb-4">⚙️</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" data-key="feature6Title">مرونة التطوير</h3>
+                    <p class="text-sm md:text-base text-gray-600" data-key="feature6Desc">تصميم المشروع يتمتع بمرونة كبيرة للتحديثات المستقبلية، مما يتيح إضافة العديد من الميزات الجديدة بسهولة.</p>
                 </div>
             </div>
         </section>
 
-        <section id="components" class="container mx-auto py-16 px-4 section-transition section-hidden">
-            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+        <section id="components" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-40 md:h-48 mb-6 md:mb-8 rounded-xl overflow-hidden">
                 <img src="https://placehold.co/1200x400/D3D3D3/000000?text=Key+Components" alt="صورة تعبيرية عن المكونات" class="absolute inset-0 w-full h-full object-cover">
             </div>
-            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="componentsTitle">المكونات الأساسية</h2>
-            <p class="text-lg leading-relaxed text-gray-700 text-center mb-8" data-key="componentsIntro">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-8 md:mb-10" data-key="componentsTitle">المكونات الأساسية</h2>
+            <p class="text-base md:text-lg leading-relaxed text-gray-700 text-center mb-6 md:mb-8" data-key="componentsIntro">
                 يعتمد نظام GMS على مجموعة من المكونات الإلكترونية والميكانيكية المتكاملة لضمان أداء فعال وموثوق.
             </p>
-            <div class="bg-white p-8 rounded-xl shadow-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/519-YZZnifL.png" alt="صورة Flex Sensor" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/519-YZZnifL.png" alt="صورة Flex Sensor" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp3Title">Flex Sensor</h3>
-                    <p class="text-gray-600" data-key="comp3Desc">مستشعرات مرنة تُثبت على أصابع القفاز، يتغير مقاومتها عند الانثناء، وترسل إشارات مختلفة إلى الأردوينو لترجمة حركة الأصابع.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp3Desc">مستشعرات مرنة تُثبت على أصابع القفاز، يتغير مقاومتها عند الانثناء، وترسل إشارات مختلفة إلى الأردوينو لترجمة حركة الأصابع.</p>
                 </div>
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/mega-2560.png" alt="صورة Arduino Mega 2560" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/mega-2560.png" alt="صورة Arduino Mega 2560" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp2Title">Arduino Mega 2560</h3>
-                    <p class="text-gray-600" data-key="comp2Desc">لوحة تحكم دقيقة أكبر ذات عدد كبير من منافذ الإدخال/الإخراج والذاكرة. تُستخدم في الكرسي المتحرك للتحكم في مكونات متعددة مثل مشغلات المحركات ووحدة البلوتوث.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp2Desc">لوحة تحكم دقيقة أكبر ذات عدد كبير من منافذ الإدخال/الإخراج والذاكرة. تُستخدم في الكرسي المتحرك للتحكم في مكونات متعددة مثل مشغلات المحركات ووحدة البلوتوث.</p>
                 </div>
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/61wPUhUIFlL.png" alt="صورة Arduino Nano" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/61wPUhUIFlL.png" alt="صورة Arduino Nano" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp1Title">Arduino Nano</h3>
-                    <p class="text-gray-600" data-key="comp1Desc">وحدة تحكم دقيقة صغيرة الحجم وسهلة الاستخدام. تم تثبيتها على القفاز لقراءة إشارات مستشعرات الانثناء وإرسالها عبر البلوتوث، واختيرت لصغر حجمها وخفة وزنها.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp1Desc">وحدة تحكم دقيقة صغيرة الحجم وسهلة الاستخدام. تم تثبيتها على القفاز لقراءة إشارات مستشعرات الانثناء وإرسالها عبر البلوتوث، واختيرت لصغر حجمها وخفة وزنها.</p>
                 </div>
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/H1aeba94a82274a03b1aef993d0351468j-800x800.png" alt="صورة HC-06 Bluetooth Module" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/H1aeba94a82274a03b1aef993d0351468j-800x800.png" alt="صورة HC-06 Bluetooth Module" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp5Title">HC-06 Bluetooth Module</h3>
-                    <p class="text-gray-600" data-key="comp5Desc">وحدة بلوتوث تم وضعها على الكرسي المتحرك لاستقبال الإشارات من القفاز. تدعم استقبال البيانات فقط (اتصال أحادي الاتجاه)، وهي مناسبة لهذه المهمة.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp5Desc">وحدة بلوتوث تم وضعها على الكرسي المتحرك لاستقبال الإشارات من القفاز. تدعم استقبال البيانات فقط (اتصال أحادي الاتجاه)، وهي مناسبة لهذه المهمة.</p>
                 </div>
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/1_HC-05_Bluetooth_Module.png" alt="صورة HC-05 Bluetooth Module" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/1_HC-05_Bluetooth_Module.png" alt="صورة HC-05 Bluetooth Module" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp4Title">HC-05 Bluetooth Module</h3>
-                    <p class="text-gray-600" data-key="comp4Desc">وحدة بلوتوث تم تثبيتها على القفاز. ترسل أوامر الحركة لاسلكيًا إلى الكرسي المتحرك، وتدعم الاتصال ثنائي الاتجاه مما يسمح للقفاز والكرسي بالبقاء متصلين ومتزامنين بسهولة.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp4Desc">وحدة بلوتوث تم تثبيتها على القفاز. ترسل أوامر الحركة لاسلكيًا إلى الكرسي المتحرك، وتدعم الاتصال ثنائي الاتجاه مما يسمح للقفاز والكرسي بالبقاء متصلين ومتزامنين بسهولة.</p>
                 </div>
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/gIrntNpyXaWFDOrGLzMA7FK1RZ3STheLHvHLrT1ctM2OxVhf58Q-6dDiLb_CKhOGMldSGEj3fgsWTv2RVNH1QxVNHJsTKcnTcmyjDwSzOt7IMa02nkdVpU3gh08h3xwe7pmN464gLQldrqY1BC-xOLI.png" alt="صورة BTS7960 Motor Driver" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/gIrntNpyXaWFDOrGLzMA7FK1RZ3STheLHvHLrT1ctM2OxVhf58Q-6dDiLb_CKhOGMldSGEj3fgsWTv2RVNH1QxVNHJsTKcnTcmyjDwSzOt7IMa02nkdVpU3gh08h3xwe7pmN464gLQldrqY1BC-xOLI.png" alt="صورة BTS7960 Motor Driver" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp6Title">BTS7960 Motor Driver</h3>
-                    <p class="text-gray-600" data-key="comp6Desc">مشغل محركات قوي يعمل كجسر بين الأردوينو ومحركات التيار المستمر. يسمح بالتحكم في اتجاه وسرعة المحرك باستخدام إشارات من الأردوينو، ويدعم التيار والجهد العالي.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp6Desc">مشغل محركات قوي يعمل كجسر بين الأردوينو ومحركات التيار المستمر. يسمح بالتحكم في اتجاه وسرعة المحرك باستخدام إشارات من الأردوينو، ويدعم التيار والجهد العالي.</p>
                 </div>
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/61AHz2cTSL.png" alt="صورة BMS S8 Smart" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/61AHz2cTSL.png" alt="صورة BMS S8 Smart" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp9Title">BMS S8 Smart</h3>
-                    <p class="text-gray-600" data-key="comp9Desc">نظام إدارة البطارية يحمي البطارية من الشحن الزائد، التفريغ الزائد، وارتفاع درجة الحرارة. يحافظ على صحة البطارية ويحسن من عمرها الافتراضي، ويضمن تشغيل البطارية بأمان وموثوقية.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp9Desc">نظام إدارة البطارية يحمي البطارية من الشحن الزائد، التفريغ الزائد، وارتفاع درجة الحرارة. يحافظ على صحة البطارية ويحسن من عمرها الافتراضي، ويضمن تشغيل البطارية بأمان وموثوقية.</p>
                 </div>
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/IMGP3414.png" alt="صورة MY1016Z2 DC Motor" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/IMGP3414.png" alt="صورة MY1016Z2 DC Motor" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp7Title">MY1016Z2 DC Motor</h3>
-                    <p class="text-gray-600" data-key="comp7Desc">محرك تيار مستمر بقوة 350 واط يستخدم لدفع الكرسي المتحرك. يوفر عزم دوران قوي ويعمل بشكل جيد مع أنظمة 24 فولت، وهو قوي بما يكفي لتحريك الكرسي والتعامل مع الأحمال الثقيلة.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp7Desc">محرك تيار مستمر بقوة 350 واط يستخدم لدفع الكرسي المتحرك. يوفر عزم دوران قوي ويعمل بشكل جيد مع أنظمة 24 فولت، وهو قوي بما يكفي لتحريك الكرسي والتعامل مع الأحمال الثقيلة.</p>
                 </div>
                 <div class="border p-4 rounded-lg text-center flex flex-col items-center">
-                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/s-l400.png" alt="صورة LiFePO4 Battery (7S)" class="w-24 h-24 object-contain mb-4 rounded-lg">
+                    <img src="https://raw.githubusercontent.com/Mido-2004/GMS/30647b42adf2f09485900fcb13def993724a6461/s-l400.png" alt="صورة LiFePO4 Battery (7S)" class="w-20 h-20 md:w-24 md:h-24 object-contain mb-3 md:mb-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2" data-key="comp8Title">LiFePO4 Battery (7S)</h3>
-                    <p class="text-gray-600" data-key="comp8Desc">بطارية ليثيوم فوسفات الحديد عالية الكفاءة تتكون من سبع خلايا متصلة على التوالي (7S)، توفر الجهد والتيار اللازمين لضمان تشغيل النظام بسلاسة.</p>
+                    <p class="text-sm md:text-base text-gray-600" data-key="comp8Desc">بطارية ليثيوم فوسفات الحديد عالية الكفاءة تتكون من سبع خلايا متصلة على التوالي (7S)، توفر الجهد والتيار اللازمين لضمان تشغيل النظام بسلاسة.</p>
                 </div>
             </div>
         </section>
 
-        <section id="how-it-works" class="container mx-auto py-16 px-4 section-transition section-hidden">
-            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+        <section id="how-it-works" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-40 md:h-48 mb-6 md:mb-8 rounded-xl overflow-hidden">
                 <img src="https://placehold.co/1200x400/A2D2FF/ffffff?text=How+It+Works" alt="صورة توضيحية لآلية العمل" class="absolute inset-0 w-full h-full object-cover">
             </div>
-            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="howItWorksTitle">كيف يعمل النظام</h2>
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="systemOverviewTitle">نظرة عامة على النظام</h3>
-                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="systemOverviewContent">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-8 md:mb-10" data-key="howItWorksTitle">كيف يعمل النظام</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="systemOverviewTitle">نظرة عامة على النظام</h3>
+                <p class="text-base md:text-lg leading-relaxed text-gray-700 mb-4" data-key="systemOverviewContent">
                     يهدف هذا المشروع إلى مساعدة الأشخاص ذوي الإعاقات الجسدية من خلال تطوير كرسي متحرك ذكي يتم التحكم فيه باستخدام إيماءات اليد عبر قفاز قابل للارتداء. الهدف هو تحسين حركة واستقلالية المستخدمين ذوي القدرات الحركية المحدودة.
                 </p>
-                <p class="text-lg leading-relaxed text-gray-700" data-key="systemControlMethods">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700" data-key="systemControlMethods">
                     يعتمد النظام على تصميم وتنفيذ كرسي متحرك ذكي يتم التحكم فيه عبر قفاز مزود بمستشعرات الانثناء (Flex Sensors)، بالإضافة إلى إمكانية التحكم من خلال تطبيق جوال باستخدام بلوتوث HC-05.
                 </p>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="gloveUnitTitle">وحدة القفاز (Glove Unit)</h3>
-                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="gloveUnitContent">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="gloveUnitTitle">وحدة القفاز (Glove Unit)</h3>
+                <p class="text-base md:text-lg leading-relaxed text-gray-700 mb-4" data-key="gloveUnitContent">
                     القفاز مزود بمستشعرات انثناء تكتشف انحناء الأصابع. يتم معالجة قيم الانحناء هذه بواسطة وحدة تحكم دقيقة (مثل الأردوينو نانو)، والتي تترجم الإيماءات إلى أوامر حركة للكرسي المتحرك (للأمام، للخلف، لليسار، لليمين). يتم إرسال أوامر الحركة لاسلكيًا إلى الكرسي باستخدام وحدة بلوتوث HC-05.
                 </p>
-                <h4 class="text-2xl font-bold text-blue-500 mb-2" data-key="gloveCodeLogicTitle">منطق كود القفاز:</h4>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                <h4 class="text-xl md:text-2xl font-bold text-blue-500 mb-2" data-key="gloveCodeLogicTitle">منطق كود القفاز:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2">
                     <li data-key="gloveCodeLogic1">تُوصل مستشعرات الانثناء بمسامير الإدخال التناظرية في الأردوينو نانو، وتتراوح قراءاتها من 0 إلى 1023، حيث يشير 0 إلى عدم الانحناء و1023 إلى أقصى انحناء.</li>
                     <li data-key="gloveCodeLogic2">تُستخدم دالة `analogRead()` لقراءة قيم المستشعرات.</li>
                     <li data-key="gloveCodeLogic3">يتم تعيين أمر افتراضي "S" (توقف)، وبناءً على قيم المستشعرات:
@@ -351,13 +353,13 @@
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="wheelchairUnitTitle">وحدة الكرسي المتحرك (Wheelchair Unit)</h3>
-                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="wheelchairUnitContent">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="wheelchairUnitTitle">وحدة الكرسي المتحرك (Wheelchair Unit)</h3>
+                <p class="text-base md:text-lg leading-relaxed text-gray-700 mb-4" data-key="wheelchairUnitContent">
                     يستقبل الكرسي المتحرك الأوامر اللاسلكية من القفاز ويحتوي على قاعدة كرسي متحرك مزودة بمحركات. يستخدم الأردوينو ميجا 2560 لاستقبال الأوامر والتحكم في المحركات عبر مشغلات المحركات BTS7960.
                 </p>
-                <h4 class="text-2xl font-bold text-blue-500 mb-2" data-key="wheelchairCodeLogicTitle">منطق كود الكرسي المتحرك:</h4>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                <h4 class="text-xl md:text-2xl font-bold text-blue-500 mb-2" data-key="wheelchairCodeLogicTitle">منطق كود الكرسي المتحرك:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2">
                     <li data-key="wheelchairCodeLogic1">يستمع كود الأردوينو ميجا لأوامر البلوتوث المرسلة من القفاز ويتحكم في محركات الكرسي وفقًا لذلك.</li>
                     <li data-key="wheelchairCodeLogic2">تمت إضافة زر مادي للحركة الخلفية، والذي يتجاوز أوامر البلوتوث ويقوم بتشغيل الحركة الخلفية فورًا عند الضغط عليه.</li>
                     <li data-key="wheelchairCodeLogic3">توجد دوال للتحكم في حركة المحركات: `moveForward()`, `moveBackward()`, `turnLeft()`, `turnRight()`, و`stopMotors()`.</li>
@@ -365,13 +367,13 @@
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="appControlTitle">التحكم عبر تطبيق الهاتف</h3>
-                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="appControlContent">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="appControlTitle">التحكم عبر تطبيق الهاتف</h3>
+                <p class="text-base md:text-lg leading-relaxed text-gray-700 mb-4" data-key="appControlContent">
                     بالإضافة إلى القفاز، يمكن التحكم في الكرسي عبر تطبيق مخصص للهاتف الذكي. يقوم التطبيق بإنشاء اتصال بلوتوث مع الكرسي ويتيح إرسال أوامر الحركة (للأمام، للخلف، لليسار، لليمين).
                 </p>
-                <h4 class="text-2xl font-bold text-blue-500 mb-2" data-key="appLogicTitle">منطق عمل التطبيق:</h4>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                <h4 class="text-xl md:text-2xl font-bold text-blue-500 mb-2" data-key="appLogicTitle">منطق عمل التطبيق:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2">
                     <li data-key="appLogic1">يبحث التطبيق عن أجهزة البلوتوث المقترنة ويقوم بإنشاء اتصال مع وحدة HC-05 في الكرسي.</li>
                     <li data-key="appLogic2">يتم إرسال الأوامر (كـ `String`) إلى جهاز البلوتوث المتصل عبر دالة `sendMessage()` .</li>
                     <li data-key="appLogic3">يبدأ التطبيق خيطًا في الخلفية للاستماع باستمرار للبيانات الواردة من الكرسي المتحرك.</li>
@@ -379,25 +381,25 @@
             </div>
         </section>
 
-        <section id="challenges" class="container mx-auto py-16 px-4 section-transition section-hidden">
-            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+        <section id="challenges" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-40 md:h-48 mb-6 md:mb-8 rounded-xl overflow-hidden">
                 <img src="https://placehold.co/1200x400/FCA5A5/ffffff?text=Challenges+and+Solutions" alt="صورة تعبيرية عن التحديات والحلول" class="absolute inset-0 w-full h-full object-cover">
             </div>
-            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="challengesTitle">التحديات والحلول</h2>
-            <p class="text-lg leading-relaxed text-gray-700 text-center mb-8" data-key="challengesIntro">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-8 md:mb-10" data-key="challengesTitle">التحديات والحلول</h2>
+            <p class="text-base md:text-lg leading-relaxed text-gray-700 text-center mb-6 md:mb-8" data-key="challengesIntro">
                 واجه مشروع الكرسي المتحرك الذكي العديد من المخاطر المحتملة أثناء التطوير والتشغيل. لقد قمنا بتحديد هذه التحديات ووضع حلول عملية لضمان نجاح المشروع.
             </p>
 
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="technicalRisksTitle">المخاطر الفنية والحلول</h3>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2 mb-4">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="technicalRisksTitle">المخاطر الفنية والحلول</h3>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2 mb-4">
                     <li data-key="technicalRisk1">**انخفاض دقة مستشعر الانثناء:** قد تنخفض دقة المستشعر بمرور الوقت أو مع الاستخدام المتكرر.</li>
                     <li data-key="technicalRisk2">**تداخل الإشارات اللاسلكية:** قد يحدث تداخل في إشارات البلوتوث أو Wi-Fi مما يؤدي إلى تأخر الاستجابة.</li>
                     <li data-key="technicalRisk3">**عدم التوافق بين المكونات:** احتمالية عدم التوافق بين المستشعرات، وحدات التحكم الدقيقة، والتطبيق.</li>
                     <li data-key="technicalRisk4">**فشل النظام غير المتوقع:** احتمال حدوث فشل في النظام أثناء التشغيل بسبب فقدان الإشارة أو عطل في الأجهزة.</li>
                 </ul>
-                <h4 class="text-2xl font-bold text-green-600 mb-2" data-key="technicalSolutionsTitle">الحلول المقترحة:</h4>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                <h4 class="text-xl md:text-2xl font-bold text-green-600 mb-2" data-key="technicalSolutionsTitle">الحلول المقترحة:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2">
                     <li data-key="technicalSolution1">استخدام مستشعرات انثناء عالية الجودة ذات أداء وموثوقية ومتانة عالية.</li>
                     <li data-key="technicalSolution2">تنفيذ معايرة منتظمة للمستشعرات للحفاظ على الدقة.</li>
                     <li data-key="technicalSolution3">ضمان التوافق بين مكونات الأجهزة من خلال اختبار التكامل المبكر.</li>
@@ -405,45 +407,45 @@
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="softwareRisksTitle">مخاطر البرمجيات والحلول</h3>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2 mb-4">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="softwareRisksTitle">مخاطر البرمجيات والحلول</h3>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2 mb-4">
                     <li data-key="softwareRisk1">أخطاء البرمجة التي قد تسبب تعطل التطبيق أو تعطله.</li>
                     <li data-key="softwareRisk2">تأخر في إرسال أو استقبال أوامر التحكم.</li>
                     <li data-key="softwareRisk3">مشاكل في إنشاء أو الحفاظ على اتصال مستقر بين التطبيق ووحدة التحكم.</li>
                 </ul>
-                <h4 class="text-2xl font-bold text-green-600 mb-2" data-key="softwareSolutionsTitle">الحلول المقترحة:</h4>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                <h4 class="text-xl md:text-2xl font-bold text-green-600 mb-2" data-key="softwareSolutionsTitle">الحلول المقترحة:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2">
                     <li data-key="softwareSolution1">إجراء مراجعات شاملة للكود واختبارات مكثفة لتقليل أخطاء البرمجة.</li>
                     <li data-key="softwareSolution2">تحسين بروتوكولات الاتصال لتقليل وقت الاستجابة.</li>
                     <li data-key="softwareSolution3">استخدام مكتبات قوية ووحدات اتصال موثوقة لضمان استقرار الاتصال.</li>
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="hardwareRisksTitle">مخاطر الأجهزة والحلول</h3>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2 mb-4">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="hardwareRisksTitle">مخاطر الأجهزة والحلول</h3>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2 mb-4">
                     <li data-key="hardwareRisk1">استنزاف البطارية أثناء الاستخدام مما قد يسبب توقف الكرسي فجأة.</li>
                     <li data-key="hardwareRisk2">ارتفاع درجة حرارة المكونات مثل المحركات أو لوحات التحكم.</li>
                     <li data-key="hardwareRisk3">تلف مستشعر الانثناء أو القفاز بسبب الاستخدام المفرط أو سوء التصميم.</li>
                 </ul>
-                <h4 class="text-2xl font-bold text-green-600 mb-2" data-key="hardwareSolutionsTitle">الحلول المقترحة:</h4>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                <h4 class="text-xl md:text-2xl font-bold text-green-600 mb-2" data-key="hardwareSolutionsTitle">الحلول المقترحة:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2">
                     <li data-key="hardwareSolution1">استخدام بطاريات قابلة لإعادة الشحن مزودة بمؤشرات شحن لمنع التوقفات غير المتوقعة.</li>
                     <li data-key="hardwareSolution2">دمج حماية حرارية أو مكونات تبريد لمنع ارتفاع درجة الحرارة.</li>
                     <li data-key="hardwareSolution3">اختيار مواد متينة للقفاز والمستشعرات لتقليل مخاطر التلف.</li>
                 </ul>
             </div>
 
-            <div class="bg-white p-8 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold text-blue-600 mb-4" data-key="safetyRisksTitle">مخاطر السلامة والحلول</h3>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2 mb-4">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="safetyRisksTitle">مخاطر السلامة والحلول</h3>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2 mb-4">
                     <li data-key="safetyRisk1">عدم وجود زر إيقاف طوارئ قد يؤدي إلى استمرار الحركة أثناء الأخطاء.</li>
                     <li data-key="safetyRisk2">احتمالية انقلاب الكرسي المتحرك بسبب عدم التوازن أو الحركات الحادة.</li>
                     <li data-key="safetyRisk3">حركات مفاجئة ناتجة عن إشارات إدخال مفسرة بشكل خاطئ.</li>
                 </ul>
-                <h4 class="text-2xl font-bold text-green-600 mb-2" data-key="safetySolutionsTitle">الحلول المقترحة:</h4>
-                <ul class="list-disc list-inside text-gray-700 text-lg leading-relaxed space-y-2">
+                <h4 class="text-xl md:text-2xl font-bold text-green-600 mb-2" data-key="safetySolutionsTitle">الحلول المقترحة:</h4>
+                <ul class="list-disc list-inside text-gray-700 text-sm md:text-base leading-relaxed space-y-2">
                     <li data-key="safetySolution1">تضمين زر إيقاف طوارئ سهل الوصول إليه.</li>
                     <li data-key="safetySolution2">تصميم الكرسي المتحرك بمركز ثقل منخفض لتحقيق توازن أفضل.</li>
                     <li data-key="safetySolution3">تحديد السرعة ودمج مستشعرات لاكتشاف العوائق.</li>
@@ -451,134 +453,134 @@
             </div>
         </section>
 
-        <section id="team" class="container mx-auto py-16 px-4 section-transition section-hidden">
-            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+        <section id="team" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-40 md:h-48 mb-6 md:mb-8 rounded-xl overflow-hidden">
                 <img src="https://placehold.co/1200x400/DA70D6/ffffff?text=Our+Team" alt="صورة تعبيرية عن فريق العمل" class="absolute inset-0 w-full h-full object-cover">
             </div>
-            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="teamTitle">فريق العمل</h2>
-            <p class="text-lg leading-relaxed text-gray-700 text-center mb-8" data-key="teamIntro">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-8 md:mb-10" data-key="teamTitle">فريق العمل</h2>
+            <p class="text-base md:text-lg leading-relaxed text-gray-700 text-center mb-6 md:mb-8" data-key="teamIntro">
                 نحن فريق من الطلاب المتحمسين من جامعة حلوان، اجتمعنا لتقديم حل مبتكر يخدم المجتمع من خلال مشروع تخرجنا.
             </p>
-            <div class="bg-white p-8 rounded-xl shadow-lg">
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
                 <div class="text-center mb-8">
-                    <h3 class="text-2xl font-bold text-blue-600 mb-4" data-key="groupLeader">قائد المجموعة:</h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-blue-600 mb-4" data-key="groupLeader">قائد المجموعة:</h3>
                     <div class="p-4 border border-blue-500 rounded-lg inline-block">
                         <img src="https://placehold.co/100x100/6A5ACD/FFFFFF?text=Leader" alt="صورة قائد المجموعة" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="leaderName">Mohamed Khaled Ameen</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="leaderName">Mohamed Khaled Ameen</p>
                     </div>
                 </div>
 
-                <h3 class="text-2xl font-bold text-blue-600 text-center mb-6" data-key="teamMembers">أعضاء الفريق:</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-center">
+                <h3 class="text-xl md:text-2xl font-bold text-blue-600 text-center mb-6" data-key="teamMembers">أعضاء الفريق:</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 text-center">
                     <div class="p-4 border rounded-lg">
                         <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member1">Demiana Zaref Gamel</p>
-                    </div>
-                    <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member2">Fady Nashaat Erian</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member1">Demiana Zaref Gamel</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member3">Roaa Osama Abdelrahman</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member2">Fady Nashaat Erian</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member4">Eyad Emad Mohammed</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member3">Roaa Osama Abdelrahman</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member5">Nouran Mohamed Mahmoud</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member4">Eyad Emad Mohammed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member6">Kerolos Wael Ibrahim</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member5">Nouran Mohamed Mahmoud</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member7">Donia Ahmed Abdelhmed</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member6">Kerolos Wael Ibrahim</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member8">Marterous Maher Fawzy</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member7">Donia Ahmed Abdelhmed</p>
+                    </div>
+                    <div class="p-4 border rounded-lg">
+                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <p class="text-base md:text-xl font-semibold" data-key="member8">Marterous Maher Fawzy</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member9">Abdallah Shaban</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member9">Abdallah Shaban</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member10">Fatma Sabry Ahmed</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member10">Fatma Sabry Ahmed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member11">Mazen Moamen Mohamed</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member11">Mazen Moamen Mohamed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member12">Farha Yasser Mohamed</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member12">Farha Yasser Mohamed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member13">Mohamed Ahmed Mohamed</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member13">Mohamed Ahmed Mohamed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member14">Nada Mohamed Al-Sayed</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member14">Nada Mohamed Al-Sayed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member15">Mohamed Hassanin Mohamed</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member15">Mohamed Hassanin Mohamed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
                         <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
-                        <p class="text-xl font-semibold" data-key="member16">Bavly Wafer Ebrahim</p>
+                        <p class="text-base md:text-xl font-semibold" data-key="member16">Bavly Wafer Ebrahim</p>
                     </div>
                 </div>
-                <div class="mt-8 text-center">
-                    <h3 class="text-2xl font-bold mb-4" data-key="supervisorsTitle">المشرفون:</h3>
+                <div class="mt-6 md:mt-8 text-center">
+                    <h3 class="text-xl md:text-2xl font-bold mb-4" data-key="supervisorsTitle">المشرفون:</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center">
                         <div class="p-4 border rounded-lg w-full max-w-sm">
                             <img src="https://placehold.co/100x100/8A2BE2/FFFFFF?text=Supervisor" alt="صورة المشرف" class="rounded-full mx-auto mb-4">
-                            <p class="text-xl font-semibold" data-key="supervisor1">Dr. Ahmed Hassan</p>
+                            <p class="text-base md:text-xl font-semibold" data-key="supervisor1">Dr. Ahmed Hassan</p>
                         </div>
                         <div class="p-4 border rounded-lg w-full max-w-sm">
                             <img src="https://placehold.co/100x100/8A2BE2/FFFFFF?text=Supervisor" alt="صورة المشرف" class="rounded-full mx-auto mb-4">
-                            <p class="text-xl font-semibold" data-key="supervisor2">Eng. Soha Magdy</p>
+                            <p class="text-base md:text-xl font-semibold" data-key="supervisor2">Eng. Soha Magdy</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="container mx-auto py-16 px-4 section-transition section-hidden">
-            <div class="relative w-full h-48 mb-8 rounded-xl overflow-hidden">
+        <section id="contact" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
+            <div class="relative w-full h-40 md:h-48 mb-6 md:mb-8 rounded-xl overflow-hidden">
                 <img src="https://placehold.co/1200x400/FFD700/000000?text=Contact+Us" alt="صورة تعبيرية عن التواصل" class="absolute inset-0 w-full h-full object-cover">
             </div>
-            <h2 class="text-4xl font-bold text-blue-700 text-center mb-10" data-key="contactTitle">تواصل معنا</h2>
-            <div class="bg-white p-8 rounded-xl shadow-lg text-center">
-                <p class="text-lg leading-relaxed text-gray-700 mb-4" data-key="contactText1">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-8 md:mb-10" data-key="contactTitle">تواصل معنا</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg text-center">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700 mb-4" data-key="contactText1">
                     يسعدنا الإجابة على استفساراتكم وتلقي ملاحظاتكم. يمكنكم التواصل معنا عبر البريد الإلكتروني:
                 </p>
-                <a href="mailto:midoamin849@gmail.com" class="text-blue-600 hover:underline text-xl font-semibold" data-key="contactEmail">
+                <a href="mailto:midoamin849@gmail.com" class="text-blue-600 hover:underline text-base md:text-xl font-semibold" data-key="contactEmail">
                     midoamin849@gmail.com
                 </a>
-                <p class="text-lg leading-relaxed text-gray-700 mt-4" data-key="contactText2">
+                <p class="text-base md:text-lg leading-relaxed text-gray-700 mt-4" data-key="contactText2">
                     أو تابعوا آخر أخبار المشروع عبر قنواتنا الاجتماعية (روابط وهمية حالياً):
                 </p>
-                <div class="flex justify-center space-x-6 space-x-reverse mt-6">
+                <div class="flex justify-center space-x-4 space-x-reverse mt-6">
                     <a href="#" class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out" title="Instagram (رابط وهمي)">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.779 1.624 4.938 4.851.07 1.266.082 1.647.082 4.85s-.012 3.584-.07 4.85c-.148 3.252-1.624 4.779-4.85 4.938-1.266.07-1.647.082-4.85.082s-3.584-.012-4.85-.07c-3.252-.148-4.779-1.624-4.938-4.85-.07-1.266-.082-1.647-.082-4.85s.012-3.584.07-4.85c.148-3.252 1.624-4.779 4.85-4.938 1.266-.07 1.647-.082 4.85-.082zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98C.014 8.333 0 8.741 0 12s.014 3.668.072 4.948c.2 4.358 2.618 6.78 6.98 6.98 1.28.058 1.688.072 4.948.072s3.668-.014 4.948-.072c4.357-.2 6.78-2.618 6.979-6.98.059-1.28.073-1.688.073-4.948s-.014-3.668-.072-4.947c-.2-4.358-2.618-6.78-6.979-6.98-1.28-.059-1.688-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.826-9.513c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.783 1.75-1.75 1.75z"></path>
                         </svg>
                     </a>
                     <a href="#" class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out" title="Twitter (رابط وهمي)">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M22.46 6c-.8.37-1.58.62-2.4.73.87-.52 1.52-1.35 1.83-2.33-.82.49-1.72.84-2.65 1.02-.78-.83-1.89-1.35-3.13-1.35-2.36 0-4.28 1.92-4.28 4.29 0 .34.04.67.11.98C8.28 9.1 4.3 7.02 1.62 3.8c-.35.61-.55 1.3-.55 2.05 0 1.49.76 2.8 1.92 3.56-.7-.02-1.37-.21-1.95-.5v.05c0 2.08 1.48 3.82 3.44 4.22-.36.1-.74.15-1.13.15-.28 0-.55-.03-.81-.08.54 1.7 2.12 2.94 3.99 2.97-1.47 1.15-3.32 1.84-5.32 1.84-.35 0-.69-.02-1.03-.06C2.86 20.1 5.02 21 7.37 21c8.84 0 13.67-7.3 13.67-13.68 0-.21-.01-.42-.01-.63.94-.68 1.76-1.53 2.41-2.5z"></path>
                         </svg>
                     </a>
                     <a href="#" class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out" title="LinkedIn (رابط وهمي)">
-                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg class="w-7 h-7 md:w-8 md:h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M.057 24L1.643 9.309H.057V0h23.943v9.309h-1.586L23.943 24zM2.812 21.09h18.376l-1.47-11.777H2.812z"></path>
                         </svg>
                     </a>
@@ -587,10 +589,10 @@
         </section>
     </main>
 
-    <footer class="bg-gray-800 text-white p-6 mt-auto rounded-t-lg">
+    <footer class="bg-gray-800 text-white p-4 md:p-6 mt-auto rounded-t-lg">
         <div class="container mx-auto text-center">
-            <p data-key="footerRights">&copy; 2025 GMS - Glove Motion System. جميع الحقوق محفوظة لجامعة حلوان.</p>
-            <p class="text-sm mt-2" data-key="footerPreparedBy">Prepared by: فريق مشروع التخرج</p>
+            <p class="text-sm md:text-base" data-key="footerRights">&copy; 2025 GMS - Glove Motion System. جميع الحقوق محفوظة لجامعة حلوان.</p>
+            <p class="text-xs md:text-sm mt-1 md:mt-2" data-key="footerPreparedBy">Prepared by: فريق مشروع التخرج</p>
         </div>
     </footer>
 
