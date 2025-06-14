@@ -107,6 +107,7 @@
         #features { background-color: var(--bg-section-features); }
         #components { background-color: var(--bg-section-components); }
         #how-it-works { background-color: var(--bg-section-how-it-works); }
+        #media { background-color: var(--bg-section-about); }
         #challenges { background-color: var(--bg-section-challenges); }
         #team { background-color: var(--bg-section-team); }
         #contact { background-color: var(--bg-section-contact); }
@@ -164,6 +165,7 @@
                     <li><a href="#features" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navFeatures">المميزات</a></li>
                     <li><a href="#components" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navComponents">المكونات</a></li>
                     <li><a href="#how-it-works" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navHowItWorks">كيف يعمل</a></li>
+                    <li><a href="#media" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navMedia">الفيديو والصور</a></li>
                     <li><a href="#challenges" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navChallenges">التحديات والحلول</a></li>
                     <li><a href="#team" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navTeam">فريق العمل</a></li>
                     <li><a href="#contact" class="hover:text-blue-200 transition duration-300 ease-in-out p-1 md:p-2 rounded-md whitespace-nowrap" data-key="navContact">تواصل معنا</a></li>
@@ -381,6 +383,29 @@
             </div>
         </section>
 
+        <section id="media" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-700 text-center mb-8 md:mb-10" data-key="mediaTitle">فيديو المشروع والصور</h2>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="projectVideoTitle">فيديو المشروع</h3>
+                <div class="aspect-w-16 aspect-h-9">
+                    <iframe src="https://www.youtube.com/embed/0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full rounded-lg"></iframe>
+                </div>
+            </div>
+             <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-6 md:mb-8">
+                <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="testVideoTitle">فيديو تجريبي</h3>
+                <div class="aspect-w-16 aspect-h-9">
+                    <video controls class="w-full h-full rounded-lg">
+                        <source src="https://github.com/Mido-2004/GMS/raw/6748f88dd4d254fadb2ba8f6d11ad2c080805216/WhatsApp%20Video%202025-06-11%20at%2016.01.18_9f8b9364.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg">
+                 <h3 class="text-2xl md:text-3xl font-bold text-blue-600 mb-4" data-key="circuitsTitle">صور الدوائر</h3>
+                 <p class="text-center text-gray-600" data-key="circuitsPlaceholder">سيتم إضافة صور الدوائر قريبًا.</p>
+                 </div>
+        </section>
+
         <section id="challenges" class="container mx-auto py-12 md:py-16 px-4 section-transition section-hidden">
             <div class="relative w-full h-40 md:h-48 mb-6 md:mb-8 rounded-xl overflow-hidden">
                 <img src="https://placehold.co/1200x400/FCA5A5/ffffff?text=Challenges+and+Solutions" alt="صورة تعبيرية عن التحديات والحلول" class="absolute inset-0 w-full h-full object-cover">
@@ -465,75 +490,75 @@
                 <div class="text-center mb-8">
                     <h3 class="text-xl md:text-2xl font-bold text-blue-600 mb-4" data-key="groupLeader">قائد المجموعة:</h3>
                     <div class="p-4 border border-blue-500 rounded-lg inline-block">
-                        <img src="https://placehold.co/100x100/6A5ACD/FFFFFF?text=Leader" alt="صورة قائد المجموعة" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/20250130_103255.jpg" alt="صورة قائد المجموعة" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="leaderName">Mohamed Khaled Ameen</p>
                     </div>
                 </div>
 
                 <h3 class="text-xl md:text-2xl font-bold text-blue-600 text-center mb-6" data-key="teamMembers">أعضاء الفريق:</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 text-center">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 text-center">
                     <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/IMG-20250614-WA0005.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member1">Demiana Zaref Gamel</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/WhatsApp%20Image%202025-06-11%20at%2018.41.38_5314d856.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member2">Fady Nashaat Erian</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/IMG-20250614-WA0011.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member3">Roaa Osama Abdelrahman</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/IMG-20250613-WA0073.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member4">Eyad Emad Mohammed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/IMG-20250614-WA0006.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member5">Nouran Mohamed Mahmoud</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/WhatsApp%20Image%202025-06-11%20at%2020.52.09_3ea2967d.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member6">Kerolos Wael Ibrahim</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/IMG-20250614-WA0007.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member7">Donia Ahmed Abdelhmed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://placehold.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/Screenshot%202025-06-14%20190621.png" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member8">Marterous Maher Fawzy</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/WhatsApp%20Image%202025-06-11%20at%2018.39.43_90c51cdc.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member9">Abdallah Shaban</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/IMG-20250614-WA0009.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member10">Fatma Sabry Ahmed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/WhatsApp%20Image%202025-06-12%20at%2000.20.54_f890341b.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member11">Mazen Moamen Mohamed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/IMG-20250614-WA0017.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member12">Farha Yasser Mohamed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/Screenshot%202025-06-14%20190820.png" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member13">Mohamed Ahmed Mohamed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/IMG-20250614-WA0010.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member14">Nada Mohamed Al-Sayed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/WhatsApp%20Image%202025-06-12%20at%2001.57.41_fdc26817.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member15">Mohamed Hassanin Mohamed</p>
                     </div>
                     <div class="p-4 border rounded-lg">
-                        <img src="https://via.placeholder.co/100x100/9370DB/FFFFFF?text=Team" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4">
+                        <img src="https://raw.githubusercontent.com/Mido-2004/GMS/6748f88dd4d254fadb2ba8f6d11ad2c080805216/WhatsApp%20Image%202025-06-12%20at%2013.34.34_9d679767.jpg" alt="صورة عضو الفريق" class="rounded-full mx-auto mb-4 w-24 h-24 object-cover">
                         <p class="text-base md:text-xl font-semibold" data-key="member16">Bavly Wafer Ebrahim</p>
                     </div>
                 </div>
@@ -591,7 +616,7 @@
 
     <footer class="bg-gray-800 text-white p-4 md:p-6 mt-auto rounded-t-lg">
         <div class="container mx-auto text-center">
-            <p class="text-sm md:text-base" data-key="footerRights">&copy; 2025 GMS - Glove Motion System. جميع الحقوق محفوظة لجامعة حلوان.</p>
+            <p class="text-sm md:text-base" data-key="footerRights">© 2025 GMS - Glove Motion System. جميع الحقوق محفوظة لجامعة حلوان.</p>
             <p class="text-xs md:text-sm mt-1 md:mt-2" data-key="footerPreparedBy">Prepared by: فريق مشروع التخرج</p>
         </div>
     </footer>
@@ -607,6 +632,7 @@
                 navFeatures: "المميزات",
                 navComponents: "المكونات",
                 navHowItWorks: "كيف يعمل",
+                navMedia: "الفيديو والصور",
                 navChallenges: "التحديات والحلول",
                 navTeam: "فريق العمل",
                 navContact: "تواصل معنا",
@@ -683,6 +709,11 @@
                 appLogic1: "يبحث التطبيق عن أجهزة البلوتوث المقترنة ويقوم بإنشاء اتصال مع وحدة HC-05 في الكرسي.",
                 appLogic2: "يتم إرسال الأوامر (كـ `String`) إلى جهاز البلوتوث المتصل عبر دالة `sendMessage()` .",
                 appLogic3: "يبدأ التطبيق خيطًا في الخلفية للاستماع باستمرار للبيانات الواردة من الكرسي المتحرك.",
+                mediaTitle: "فيديو المشروع والصور",
+                projectVideoTitle: "فيديو المشروع",
+                testVideoTitle: "فيديو تجريبي",
+                circuitsTitle: "صور الدوائر",
+                circuitsPlaceholder: "سيتم إضافة صور الدوائر قريبًا.",
                 challengesTitle: "التحديات والحلول",
                 challengesIntro: "واجه مشروع الكرسي المتحرك الذكي العديد من المخاطر المحتملة أثناء التطوير والتشغيل. لقد قمنا بتحديد هذه التحديات ووضع حلول عملية لضمان نجاح المشروع.",
                 technicalRisksTitle: "المخاطر الفنية والحلول",
@@ -747,7 +778,7 @@
                 contactText1: "يسعدنا الإجابة على استفساراتكم وتلقي ملاحظاتكم. يمكنكم التواصل معنا عبر البريد الإلكتروني:",
                 contactEmail: "midoamin849@gmail.com",
                 contactText2: "أو تابعوا آخر أخبار المشروع عبر قنواتنا الاجتماعية (روابط وهمية حالياً):",
-                footerRights: "&copy; 2025 GMS - Glove Motion System. جميع الحقوق محفوظة لجامعة حلوان.",
+                footerRights: "© 2025 GMS - Glove Motion System. جميع الحقوق محفوظة لجامعة حلوان.",
                 footerPreparedBy: "Prepared by: فريق مشروع التخرج",
                 themeToggleText: "وضع داكن"
             },
@@ -759,6 +790,7 @@
                 navFeatures: "Features",
                 navComponents: "Components",
                 navHowItWorks: "How It Works",
+                navMedia: "Video & Images",
                 navChallenges: "Challenges & Solutions",
                 navTeam: "Team",
                 navContact: "Contact Us",
@@ -808,6 +840,11 @@
                 comp8Desc: "The battery we used consists of seven Lithium Iron Phosphate (LiFePO4) cells connected in series (7S), providing the necessary voltage and current to ensure the system runs smoothly.",
                 comp9Title: "BMS S8 Smart",
                 comp9Desc: "A Battery Management System protecting the battery from overcharging, over-discharging, and overheating. It keeps the battery healthy and improves its lifespan.",
+                mediaTitle: "Project Video & Images",
+                projectVideoTitle: "Project Video",
+                testVideoTitle: "Test Video",
+                circuitsTitle: "Circuit Images",
+                circuitsPlaceholder: "Circuit images will be added soon.",
                 teamTitle: "Our Team",
                 teamIntro: "We are a team of enthusiastic students from Helwan University, united to deliver an innovative solution that serves the community through our graduation project.",
                 groupLeader: "Group Leader:",
@@ -836,7 +873,7 @@
                 contactText1: "We are happy to answer your inquiries and receive your feedback. You can contact us via email:",
                 contactEmail: "midoamin849@gmail.com",
                 contactText2: "Or follow the latest project news via our social media channels (placeholder links for now):",
-                footerRights: "&copy; 2025 GMS - Glove Motion System. All rights reserved to Helwan University.",
+                footerRights: "© 2025 GMS - Glove Motion System. All rights reserved to Helwan University.",
                 footerPreparedBy: "Prepared by: Graduation Project Team",
                 themeToggleText: "Light Mode"
             }
@@ -867,7 +904,7 @@
 
             // تحديث نص زر تبديل الثيم
             const themeToggleButton = document.getElementById('theme-toggle');
-            themeToggleButton.textContent = (currentTheme === 'light') ? translations[currentLanguage].themeToggleText : (currentLanguage === 'ar' ? 'وضع فاتح' : 'Light Mode');
+            themeToggleButton.textContent = (currentTheme === 'light') ? (currentLanguage === 'ar' ? 'وضع داكن' : 'Dark Mode') : (currentLanguage === 'ar' ? 'وضع فاتح' : 'Light Mode');
         }
 
         // دالة لتطبيق الثيم (فاتح/داكن)
